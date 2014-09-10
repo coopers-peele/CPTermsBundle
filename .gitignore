@@ -1,0 +1,8 @@
+.*
+**/bower_components
+**/node_Modules
+composer.lock
+phpunit.xml
+Propel/om/*
+Propel/map/*
+vendor/*
