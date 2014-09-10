@@ -15,7 +15,7 @@ Add the package to your project's `composer.json`:
 
 ```json
 "require": {
-	"cp/terms-bundle": "dev-master",
+	"cp/terms-bundle": "~1.0",
 	…
 }
 ```
@@ -55,9 +55,6 @@ php app/console propel:migration:migrate
 Add the following code to your routing configuration:
 
 ```yaml
-cp_terms_bundle_admin:
-    resource: "@CPTermsBundle/Resources/config/routing/admin.yml"
-
 cp_terms_bundle_admin:
     resource: "@CPTermsBundle/Resources/config/routing/admin.yml"
 ```

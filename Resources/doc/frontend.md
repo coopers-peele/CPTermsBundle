@@ -24,6 +24,7 @@ Allow users to agree terms
 A user is typically required to agree to your application's terms of service. The bundle makes it easy to implement this feature.
 
 Import config to app:
+
 ```yaml
 # app/config/config.yml
 imports:
@@ -48,8 +49,12 @@ php app/console propel:model:build
 
 Generate migration diff and migrate to database.
 ```php
-...
+php app/console propel:migration:generate-diff
+
+# review the migration file before applying it
+php app/console propel:migration:migrate
 ```
+
 Now on default `/tos/agree` contains agree page for frontend.
 
 **Note**: To add agree terms while signing up. Look at [add agree at register (Sign up)](./Resources/doc/signup.md)
