@@ -1,7 +1,7 @@
 How to enforce agreement to your terms
 ======================================
 
-Enforcing agreement means making sure that user of the site has agreed to latest terms of your site. If the terms have changed since last agreement between users and site, then again latest terms must be agreed. The following text contains three tutorials for three cases. Choose one appropriate for your case.
+Enforcing agreement means making sure that user of the site has agreed to latest terms of your site. Everytime you publish a new version of your terms of service, If the terms have changed since last agreement between users and site, then again latest terms must be agreed. The following text contains three tutorials for three cases. Choose one appropriate for your case.
 
 Case 1: Check at login only
 ---------------------------
