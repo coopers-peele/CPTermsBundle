@@ -1,0 +1,12 @@
+<section class="tos">
+	<section class="intro">
+		{{ root.content|raw }}
+	</section>
+	{% if not root.leaf %}
+	<ul class="list-unstyled">
+		{% for section in root.children %}
+			{% include "CPTermsBundle:Frontend:section.html.twig" with { prefix: "" } %}
+		{% endfor %}
+	</ul>
+	{% endif %}
+</section>

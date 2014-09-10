@@ -1,0 +1,9 @@
+_cp_terms_admin:
+    resource: "@CPTermsBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin/tos
+
+_cp_terms_admin_section:
+    resource: "@CPTermsBundle/Controller/SectionController.php"
+    type:     annotation
+    prefix:   /admin/tos/section

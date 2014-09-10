@@ -1,0 +1,38 @@
+{% spaceless %}
+
+{% trans_default_domain "CPTermsBundle" %}
+
+{% if not terms.isFinal %}
+<div class='btn-group pull-right'>
+	<button type='button' class='dropdown-toggle' data-toggle='dropdown'>
+		<i class='fa fa-cog'></i>
+	</button>
+	<ul class='dropdown-menu dropdown-menu-right navbar-right' role='menu'>
+		<li>
+			<a class="edit" href="{{ path('cp_terms_admin_section_edit', { id: section.id, prefix: prefix }) }}">
+				<i class="fa fa-edit"></i> {% trans %}section.actions.edit{% endtrans %}
+			</a>
+		</li>
+		<li>
+			<a class="add_child" href="{{ path('cp_terms_admin_section_add_child', { id: section.id, prefix: prefix }) }}">
+				<i class="fa fa-plus"></i> {% trans %}section.actions.add_child{% endtrans %}
+			</a>
+		</li>
+		{%- if sibling is defined -%}
+			<li>
+				<a class="add_sibling" href="{{ path('cp_terms_admin_section_add_sibling', { id: section.id, prefix: sibling }) }}">
+					<i class="fa fa-plus"></i> {% trans %}section.actions.add_sibling{% endtrans %}
+				</a>
+			</li>
+		{%- endif -%}
+		{% if section.level %}
+			<li>
+				<a class="delete" href="{{ path('cp_terms_admin_section_delete', { id: section.id, prefix: prefix }) }}">
+					<i class="fa fa-times"></i> {% trans %}section.actions.delete{% endtrans %}
+				</a>
+			</li>
+		{% endif %}
+	</ul>
+</div>
+{% endif %}
+{% endspaceless %}

@@ -1,0 +1,111 @@
+agreement:
+    agree:               I agree
+    decline:             I decline
+    success:             Successfully agreed.
+    intro: >
+        <p>Before you can use our web site, you are required to agree to
+        our terms of service.</p>
+    page_title:      Please agree to our terms of service
+    form:
+        agreed_at:
+            label:       I have read and agreed to the <a href="%terms_url%">terms of service<a>.
+            error:
+                message: You must agree to our terms of service to continue
+
+diff:
+    cancel:              Display terms
+    form:
+        submit:          Refresh
+        terms:
+            label:       Show differences with:
+            no_target:   Choose one terms
+    go_back:             Back to agree terms
+    instruction: >
+        <p>Open the link below to see the difference between your last agreed terms and latest terms: </p>
+    label: Show differences
+    no_target: >
+        First choose a target to see the difference with.
+    no_terms_to_compare: >
+        <p>There is only 1 set of terms. There is nothing to compare it to.</p>
+    page_title:          Changes from your last agreed terms
+
+form:
+    type:
+        terms_choice:
+            drafts:
+                label:   %version%
+                legend:  Drafts
+            final:
+                label:   %version% [%finalized_at%]
+                legend:  Finalized
+            none:        None
+
+section:
+    actions:
+        add_child:       Add a sub-section
+        add_sibling:     Add a section after this one
+        delete:          Remove this section
+        edit:            Edit this section
+    add_child:
+        success:         The "%child%" section has been successfully added to the "%section%" section.
+    add_sibling:
+        success:         The "%sibling%" section has been successfully added after the "%section%" section.
+    delete:
+        confirm: >
+            You are about to delete section <b>{{section}}</b>. This operation
+            cannot be undone. Please confirm to continue.
+        success:         The section "%prefix%%section%" has been deleted.
+    edit:
+        success:         The section "%prefix%%section%" has been updated successfully.
+    form:
+        cancel:          Cancel
+        content:
+            label:       Content
+        submit:          Save
+        title:
+            label:       Title
+    move:
+        error:           Section was not moved successfully.
+        success:         The section has been moved successfully.
+    new:
+        title:           %prefix% New section
+
+terms:
+    actions:
+        clone:           Clone
+        delete:          Delete
+        diff:            See diff
+        edit:            Modify
+        finalize:        Finalize
+        show:            Show
+    choice:
+        none:            None
+    delete:
+        confirm: >
+            You are about to delete these terms. This operation cannot be undone.
+            Please confirm to continue.
+        success:         Version "%terms%" of the terms has been permanently deleted.
+    description:         Description (not visible to users)
+    diff:
+        cancel:          Retourner à la liste
+    edit:
+        cancel:          Cancel
+        success:         Version %terms% of the terms has been updated.
+    finalize:
+        confirm: >
+            You are about to finalize these terms. Once finalized, the terms cannot
+            be modified. Please confirm to continue.
+        success:         The terms have been finalized as of %finalized_at%.
+    finalized:           Finalized on %finalized_at%
+    finalized_at:        Finalized on
+    form:
+        cancel:          Cancel
+        description:
+            label:       Description (not visible to users)
+        submit:          Save
+        version:
+            label:       Version
+    page_title:          Terms of service
+    show:
+        cancel:          Return to list
+    version:             Version

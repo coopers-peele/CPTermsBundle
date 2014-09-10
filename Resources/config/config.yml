@@ -1,0 +1,19 @@
+propel:
+    build-properties:
+        propel.behavior.tos.class : CP\Bundle\TermsBundle\Propel\Behavior\Tos\TosBehavior
+
+twig:
+    form:
+        resources:
+            - CPTermsBundle:Form:fields.html.twig
+
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
+    dzango.twig.truncate_extension:
+        class: Dzango\Twig\Extension\Truncate
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,111 @@
+agreement:
+    agree:               J'accepte
+    decline:             Je refuse
+    success:             Successfully Agreed CHANGE_TO_FR.
+    intro: >
+        <p>Avant de pouvoir utiliser notre site, il vous est demandé d'accepter
+        nos conditions d'utilisation.</p>
+    page_title:          Merci d'accepter nos conditions d'utilisation
+    form:
+        agreed_at:
+            label:       J'ai lu et j'accepte sans réserve les <a href="%terms_url%">conditions d'utilisation<a>.
+            error:
+                message: Vous devez accepter les conditions d'utilisation avant de pouvoir continuer.
+
+diff:
+    cancel:              Afficher les conditions
+    form:
+        submit:          Rafraîchir
+        terms:
+            label:       Afficher les différences avec :
+            no_target:   Choose one terms CHANGE_TO_FR
+    go_back:             Back to agree terms CHANGE_TO_FR
+    instruction: >
+        <p>Open the link below to see the difference between your last agreed terms and latest terms: CHANGE_TO_FR </p>
+    label: Show differences CHANGE_TO_FR
+    no_target: >
+        First choose a target to see the difference with. CHANGE_TO_FR
+    no_terms_to_comparee: >
+            <p>Vous n'avez qu'une seule version de vos Conditions Générales. Il n'y a rien à quoi elle peut être ccomparée.
+    page_title:          Changes from your last agreed terms CHANGE_TO_FR
+
+form:
+    type:
+        terms_choice:
+            drafts:
+                label:   %version%
+                legend:  Brouillons
+            final:
+                label:   %version% [%finalized_at%]
+                legend:  Finalisés
+            none:        Aucun
+
+section:
+    actions:
+        add_child:       Ajouter une sous-section
+        add_sibling:     Ajouter une section après celle-ci
+        delete:          Suprimer cette section
+        edit:            Modifier cette section
+    add_child:
+        success:         La section "%child%" a été ajoutée à la section "%section%".
+    add_sibling:
+        success:         La section "%sibling%" a été ajoutée après la section "%section%".
+    delete:
+        confirm: >
+            Vous êtes sur le point de supprimer définitivement la section
+            <b>{{section}}</b>. Veuillez confirmer cette opération pour continuer.
+        success:         La section "%prefix%%section%" a été supprimée.
+    edit:
+        success:         La section "%prefix%%section%" a été mise à jour.
+    form:
+        cancel:          Annuler
+        content:
+            label:       Texte
+        submit:          Sauvegarder
+        title:
+            label:       Titre
+    move:
+        error:           Section was not moved successfully.
+        success:         The section has been moved successfully.
+    new:
+        title:           %prefix% Nouvelle section.
+
+terms:
+    actions:
+        clone:           Cloner
+        delete:          Supprimer
+        diff:            Différences
+        edit:            Modifier
+        finalize:        Finaliser
+        show:            Afficher
+    choice:
+        none:            Sans
+    delete:
+        confirm: >
+            Vous êtes sur le point de supprimer définitivement ces CGU. Veuillez
+            confirmer cette opération pour continuer.
+        success:         La version "%terms%" des CGI a été définitivement supprimée.
+    description:         Description (invisible aux utilisateurs)
+    diff:
+        cancel:          Retourner à la liste
+    edit:
+        cancel:          Annuler
+        success:         Les conditions ont été mises à jour.
+    finalize:
+        confirm: >
+            Vous êtes sur le point de finaliser ces CGU. Une fois finalisées,
+            ces CGU ne pourront plus être modifiées. Veuillez confirmer cette
+            opération pour continuer.
+        success:         Les CGU ont été finalisées en date du %finalized_at%.
+    finalized_at:        Finalisées le
+    form:
+        cancel:          Annuler
+        description:
+            label:       Description
+        submit:          Saivegarder
+        version:
+            label:       Version
+    page_title:          Conditions générales d'utilisation
+    show:
+        cancel:          Retourner à la liste
+    version:             Version

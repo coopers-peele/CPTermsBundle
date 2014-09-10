@@ -1,0 +1,6 @@
+services:
+    cp_terms.twig.diff_extension:
+        class: CP\Bundle\TermsBundle\Twig\Extension\DiffExtension
+        arguments: ~
+        tags:
+            - { name: twig.extension }

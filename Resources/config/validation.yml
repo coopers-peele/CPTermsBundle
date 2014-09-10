@@ -1,0 +1,8 @@
+CP\Bundle\TermsBundle\Propel\Agreement:
+    properties:
+        agreed_at:
+            - NotNull:
+                { message: "agreement.agreed_at.null", groups: [CP_TERMS] }
+        terms_id:
+            - CP\Bundle\TermsBundle\Validator\Constraints\LatestTerms:
+                { message: "agreement.terms_id.not_latest", groups: [CP_TERMS] }

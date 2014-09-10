@@ -1,0 +1,40 @@
+{% extends "CPTermsBundle::frontend.html.twig" %}
+
+{% trans_default_domain "CPTermsBundle" %}
+
+{#% form_theme form "CPTermsBundle:Form:bootstrap3.html.twig" %#}
+
+{% block cp_terms_page_class %}agree{% endblock %}
+
+{% block cp_terms_page_title %}
+	{% trans %}agreement.page_title{% endtrans %}
+{% endblock %}
+
+{% block cp_terms_content %}
+	<div class="alert alert-warning">
+	{% trans %}agreement.intro{% endtrans %}
+
+	{% if agreement_diff_enabled and entity.lastAgreedTerms %}
+		{% trans %}diff.instruction{% endtrans %}
+		<a href="{{ path('cp_terms_diff') }}">{% trans %}diff.label{% endtrans %}</a>
+	{% endif %}
+	</div>
+
+	{{ form_start(form) }}
+		{{ form_row(form.agreed_at) }}
+		{{ form_rest(form) }}
+		<div class="form-group">
+			<input type="submit" class="btn btn-primary pull-right" value="{% trans %}agreement.agree{% endtrans %}" />
+			<a class="btn btn-warning">{% trans %}agreement.decline{% endtrans %}</a>
+		</div>
+	{{ form_end(form) }}
+{% endblock %}
+
+{% block cp_terms_head_style %}
+	{{ parent() }}
+	{% stylesheets filter="cssrewrite"
+		'bundles/cpterms/css/cpterms.css'
+	%}
+		<link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+	{% endstylesheets %}
+{% endblock %}

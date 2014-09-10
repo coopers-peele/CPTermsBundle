@@ -1,0 +1,4 @@
+_cp_terms:
+    resource: "@CPTermsBundle/Controller/FrontendController.php"
+    type:     annotation
+    prefix:   /tos

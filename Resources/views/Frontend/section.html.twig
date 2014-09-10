@@ -1,0 +1,18 @@
+{% set prefix = prefix ~ loop.index ~ "." %}
+<li class="tos_level_{{ section.level }}">
+	{% block section_title %}
+		<h{{ section.level + 1 }} class="section-title">
+			<span class="rank">{{ prefix }}</span>&nbsp;<span class="text">{{ section.title }}</span>
+		</h{{ section.level + 1 }}>
+	{% endblock %}
+	{% block section_body %}
+		<section class="body">{{ section.content|markdown|raw }}</section>
+		{% if not section.leaf %}
+			<ul class="list-unstyled">
+				{% for child in section.children %}
+					{% include "CPTermsBundle:Frontend:section.html.twig" with { section: child, prefix: prefix } %}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endblock %}
+</li>

@@ -1,0 +1,15 @@
+services:
+    cp_terms.markdown.parser.standard:
+        class: cebe\markdown\Markdown
+        arguments: ~
+
+    cp_terms.markdown.parser.github:
+        class: cebe\markdown\GithubMarkdown
+        arguments: ~
+
+    cp_terms.twig.markdown_extension:
+        class: CP\Bundle\TermsBundle\Twig\Extension\MarkdownExtension
+        arguments:
+            - @cp_terms.markdown.parser
+        tags:
+            - { name: twig.extension }

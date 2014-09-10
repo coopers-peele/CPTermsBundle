@@ -1,0 +1,6 @@
+{% trans_default_domain "CPTermsBundle" %}
+
+<li class="section terms_level_{{ level }} new">
+	<h{{ level + 1 }}>{% trans with { '%prefix%': prefix } %}section.new.title{% endtrans %}</h{{ level + 1 }}>
+	{% include "CPTermsBundle:Section:edit.html.twig" %}
+</li>

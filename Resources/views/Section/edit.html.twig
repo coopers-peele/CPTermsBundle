@@ -1,0 +1,15 @@
+{% trans_default_domain "CPTermsBundle" %}
+
+{% block form_theme %}
+{% form_theme form "CPTermsBundle:Form:bootstrap3.html.twig" %}
+{% endblock %}
+
+{% block cp_tos_content %}
+{{ form_start(form) }}
+	{{ form_row(form.title) }}
+	{{ form_row(form.content) }}
+	{{ form_widget(form.save) }}
+	{{ form_widget(form.cancel) }}
+	{{ form_rest(form) }}
+{{ form_end(form) }}
+{% endblock %}

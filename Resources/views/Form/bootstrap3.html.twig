@@ -1,0 +1,35 @@
+{% extends "form_div_layout.html.twig" %}
+
+{% block form_row -%}
+	<div class="form-group">
+		{{ form_label(form) }}
+		{{ form_widget(form) }}
+		{{ form_errors(form) }}
+	</div>
+{%- endblock form_row %}
+
+{% block button_widget -%}
+	{% if label is empty -%}
+		{% set label = name|humanize %}
+	{%- endif -%}
+	{% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' btn')|trim }) %}
+	<button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+{%- endblock button_widget %}
+
+{% block submit_widget -%}
+	{% set type = type|default('submit') %}
+	{% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' btn btn-primary pull-right')|trim }) %}
+	{{- block('button_widget') -}}
+{%- endblock submit_widget %}
+
+{% block textarea_widget -%}
+	<textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+	<div id="epiceditor" class="form-control"></div>
+{%- endblock textarea_widget %}
+
+{% block widget_attributes -%}
+	{% if type is defined and type != 'checkbox' %}
+		{% set attr = attr|merge({ 'class': (attr.class|default('') ~ ' form-control')|trim }) %}
+	{% endif %}
+	{{ parent() }}
+{%- endblock widget_attributes %}

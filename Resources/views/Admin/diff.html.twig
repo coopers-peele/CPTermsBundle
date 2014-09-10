@@ -1,0 +1,86 @@
+{% extends "CPTermsBundle::admin.html.twig" %}
+
+{% form_theme form "CPTermsBundle:Form:bootstrap3.html.twig" %}
+
+{% trans_default_domain "CPTermsBundle" %}
+
+{% block cp_terms_page_class %}cpterms diff{% endblock %}
+
+{% block cp_terms_page_title %}{{ terms.title }} [{{ terms.version }}]{% endblock %}
+
+{% block cp_terms_page_nav %}
+<ul class="nav navbar-nav navbar-right">
+	<li>
+		<a href="{{ path('cp_terms_admin_show', { id: terms.id }) }}"><i class="fa fa-long-arrow-left"></i> {% trans %}diff.cancel{% endtrans %}</a>
+	</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
+		<ul class="dropdown-menu dropdown-menu-right" role="menu">
+			<li>
+				<a href="{{ path('cp_terms_admin_show', { id: terms.id }) }}">{% trans %}terms.actions.show{% endtrans %}</a>
+				<a href="{{ path('cp_terms_admin_edit', { id: terms.id }) }}">{% trans %}terms.actions.edit{% endtrans %}</a>
+				{% if not terms.isFinal %}
+					<a href="{{ path('cp_terms_admin_finalize', { id: terms.id }) }}">{% trans %}terms.actions.finalize{% endtrans %}</a>
+					<a href="{{ path('cp_terms_admin_delete', { id: terms.id }) }}">{% trans %}terms.actions.delete{% endtrans %}</a>
+				{% endif %}
+				<a href="{{ path('cp_terms_admin_clone', { id: terms.id }) }}">{% trans %}terms.actions.clone{% endtrans %}</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+{% endblock %}
+
+{% block cp_terms_content %}
+	{% include "CPTermsBundle:Admin:description.html.twig" %}
+
+	{% if terms_count <= 1 %}
+		<div class="alert alert-warning">
+			{% trans %}diff.no_terms_to_compare{% endtrans %}
+		</div>
+	{% else %}
+		<div>
+			{{ form_start(form) }}
+				<h3>{{ form_label(form.terms) }}</h3>
+				<div class="row">
+					<div class="col-sm-10">
+						{{ form_widget(form.terms) }}
+					</div>
+					<div class="col-sm-2">
+						{{ form_widget(form.submit) }}
+					</div>
+				</div>
+				{{ form_rest(form) }}
+			{{ form_end(form) }}
+		</div>
+		<div class="preview">
+			{% if with_terms != null %}
+				{{ terms|diff(with_terms) }}
+			{% else %}
+				{% trans %}diff.no_target{% endtrans %}
+			{% endif %}
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block cp_terms_head_style %}
+	{{ parent() }}
+	<link href="{{ asset(theme) }}" type="text/css" rel="stylesheet" media="screen" />
+{% endblock %}
+
+{% block cp_terms_foot_script %}
+	{{ parent() }}
+	{% javascripts
+		'bundles/cpterms/js/toggle.js'
+	%}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	<script>
+	$( document ).ready(function() {
+		$( ".diff form select" ).change(function( e ) {
+			e.preventDefault();
+
+			$( this ).closest( "form" ).submit();
+		});
+	});
+	</script>
+{% endblock %}

@@ -1,0 +1,18 @@
+services:
+    cp_terms.form.type.agreement:
+        class: CP\Bundle\TermsBundle\Form\Type\AgreementFormType
+        arguments: ~
+        tags:
+            - { name: form.type, alias: cp_terms_agreement }
+
+    cp_terms.form.type.agreement_date:
+        class: CP\Bundle\TermsBundle\Form\Type\AgreementDateType
+        arguments: ~
+        tags:
+            - { name: form.type, alias: cp_terms_agreement_date }
+
+    cp_terms.form.type.terms_choice:
+        class: CP\Bundle\TermsBundle\Form\Type\TermsChoiceType
+        arguments: [@request_stack, @translator]
+        tags:
+            - { name: form.type, alias: cp_terms_choice }

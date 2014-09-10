@@ -1,0 +1,11 @@
+{% extends "CPTermsBundle::frontend.html.twig" %}
+
+{% trans_default_domain "CPTermsBundle" %}
+
+{% block cp_terms_page_class %}tos{% endblock %}
+
+{% block cp_terms_page_title %}{{ root.title }}{% endblock %}
+
+{% block cp_terms_content %}
+{% include "CPTermsBundle:Frontend:tos.html.twig" %}
+{% endblock %}

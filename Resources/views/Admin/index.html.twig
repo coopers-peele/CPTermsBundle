@@ -1,0 +1,44 @@
+{% extends "CPTermsBundle::admin.html.twig" %}
+
+{% trans_default_domain "CPTermsBundle" %}
+
+{% block cp_terms_page_title %}{% trans %}terms.page_title{% endtrans %}{% endblock %}
+
+{% block cp_terms_content %}
+<div class="cpterms">
+	<table class="table table-condensed table-hover">
+		<thead>
+			<tr>
+				<th class="version">{% trans %}terms.version{% endtrans %}</th>
+				<th class="description">{% trans %}terms.description{% endtrans %}</th>
+				<th class="datetime">{% trans %}terms.finalized_at{% endtrans %}</th>
+				<th class="actions"><i class="fa fa-cog"></i></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for tos in terms %}
+				<tr{{ tos.isFinal ? ' class="final"' : '' }}>
+					<td>
+						<a href="{{ path('cp_terms_admin_show', { id: tos.id }) }}">{{ tos.version }}</a>
+					</td>
+					<td class="description">{{ tos.description|markdown|raw|truncate(500, "...", false, true) }}</td>
+					<td>{{ tos.isFinal ? tos.finalizedAt|localizeddate('medium', 'medium', app.request.locale, null, date_format) : '' }}</td>
+					<td class="actions">{% include "CPTermsBundle:Admin:actions.html.twig" %}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
+
+{% block cp_terms_foot_script %}
+	{{ parent() }}
+	{% javascripts
+		'bundles/cpterms/vendor/bootbox/bootbox.min.js'
+		'bundles/cpterms/vendor/mustache/mustache.min.js'
+		'bundles/cpterms/js/confirm.js'
+	%}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+{% endblock %}
+

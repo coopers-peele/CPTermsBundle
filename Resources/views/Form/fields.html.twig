@@ -1,0 +1,18 @@
+{% trans_default_domain "cpterms" %}
+
+{% block cp_terms_agreement_date_row %}
+<div>
+	{{ block('form_label') }}
+	{{ block('form_errors') }}
+	{{ block('cp_terms_agreement_date_widget') }}
+</div>
+{% endblock %}
+
+{% block cp_terms_agreement_date_widget %}
+<div class="checkbox">
+	<label>
+		{{ block('checkbox_widget') }}
+		{{ "agreement.form.agreed_at.label"|trans({ '%terms_url%': path('cp_terms') }, translation_domain)|raw }}
+	</label>
+</div>
+{% endblock %}

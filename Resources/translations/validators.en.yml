@@ -1,0 +1,5 @@
+agreement:
+    agreed_at:
+        'null':     You must agree to our terms of service to continue
+    terms_id:
+        not_latest: The agreed terms of service must be latest to continue.

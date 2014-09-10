@@ -1,0 +1,85 @@
+{% extends "CPTermsBundle::admin.html.twig" %}
+
+{% trans_default_domain "CPTermsBundle" %}
+
+{% block cp_terms_page_class %}cpterms{% endblock %}
+
+{% block cp_terms_page_title %}{{ terms.title }} [{{ terms.version }}]{% endblock %}
+
+{% block cp_terms_page_nav %}
+<ul class="nav navbar-nav navbar-right nav-terms">
+	<li>
+		<a href="{{ path('cp_terms_admin') }}"><i class="fa fa-long-arrow-left"></i> {% trans %}terms.show.cancel{% endtrans %}</a>
+	</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
+		<ul class="dropdown-menu dropdown-menu-right" role="menu">
+			<li>
+				<a href="{{ path('cp_terms_admin_edit', { id: terms.id }) }}">{% trans %}terms.actions.edit{% endtrans %}</a>
+			</li>
+			{% if terms.defaultDiffTarget is not null %}
+				<li>
+					<a href="{{ path('cp_terms_admin_diff', { id: terms.id }) }}">{% trans %}terms.actions.diff{% endtrans %}</a>
+				</li>
+			{% endif %}
+			<li>
+				<a href="{{ path('cp_terms_admin_clone', { id: terms.id }) }}">{% trans %}terms.actions.clone{% endtrans %}</a>
+			</li>
+			{% if not terms.isFinal %}
+				<li>
+					<a href="{{ path('cp_terms_admin_finalize', { id: terms.id }) }}" class="confirm"
+						data-confirm="{% trans %}terms.finalize.confirm{% endtrans %}">{% trans %}terms.actions.finalize{% endtrans %}</a>
+				</li>
+				<li>
+					<a href="{{ path('cp_terms_admin_delete', { id: terms.id }) }}" class="confirm"
+						data-confirm="{% trans %}terms.delete.confirm{% endtrans %}">{% trans %}terms.actions.delete{% endtrans %}</a>
+				</li>
+			{% endif %}
+		</ul>
+	</li>
+</ul>
+{% endblock %}
+
+{% block cp_terms_content %}
+	{% include "CPTermsBundle:Admin:description.html.twig" %}
+
+	<div class="preview">
+		<section class="tos" data-drop-url="{{ path('cp_terms_admin_section_move') }}">
+		<ul class="list-unstyled">
+			{% include "CPTermsBundle:Section:show.html.twig" with { section: root, prefix: "" } %}
+		</ul>
+		</section>
+	</div>
+{%- endblock %}
+
+{% block cp_terms_foot_script %}
+	{{ parent() }}
+	{% javascripts
+		'bundles/cpterms/vendor/jquery-sortable/source/js/jquery-sortable-min.js'
+		'bundles/cpterms/vendor/epiceditor/epiceditor/js/epiceditor.js'
+		'bundles/cpterms/vendor/bootbox/bootbox.min.js'
+		'bundles/cpterms/vendor/mustache/mustache.min.js'
+		'bundles/cpterms/js/cpterms.js'
+		'bundles/cpterms/js/toggle.js'
+		'bundles/cpterms/js/confirm.js'
+	%}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	<script>
+	cpterms.i18n = {
+		tos: {
+			delete: {
+				confirm: '{% spaceless %}{% trans %}terms.delete.confirm{% endtrans %}{% endspaceless %}'
+			},
+			finalize: {
+				confirm: '{% spaceless %}{% trans %}terms.finalize.confirm{% endtrans %}{% endspaceless %}'
+			}
+		},
+		section: {
+			delete: {
+				confirm: '{% spaceless %}{% trans %}section.delete.confirm{% endtrans %}{% endspaceless %}'
+			}
+		}
+	}
+	</script>
+{% endblock %}

@@ -1,0 +1,149 @@
+.cpterms table.table td,
+.cpterms table.table th {
+    border: 1px solid #ddd;
+    border-width: 1px 0;
+}
+
+.cpterms table.table th.version {
+    width: 10em;
+}
+
+.cpterms table.table th.datetime {
+    width: 10em;
+}
+
+.cpterms table.table th.actions {
+    width: 36px;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.cpterms tr.final {
+    background-color: #ffbaba;
+}
+
+.cpterms table.table td.actions {
+    width: 36px;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.cpterms .table.table td.actions button.dropdown-toggle,
+.cpterms .tos li.section button.dropdown-toggle {
+    border: none;
+    background: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.cpterms .table.table td.actions .dropdown-menu,
+.cpterms .tos li.section .dropdown-menu {
+    margin-top: 0;
+}
+
+.cpterms .tos li.section .dropdown-menu > li > a {
+    text-align: left;
+}
+
+.cpterms table.table td.actions .dropdown-menu > li > a {
+    background-color: #fff;
+    text-align: left;
+}
+
+.cpterms table.table tr td.actions .dropdown-menu > li > a:hover {
+    color: #fff;
+    background-color: #ddd;
+}
+
+.cpterms .preview {
+    border: 1px solid #ddd;
+    -moz-box-shadow:    3px 8px 3px 5px #ccc;
+    -webkit-box-shadow: 3px 8px 3px 5px #ccc;
+    box-shadow:         3px 8px 25px -6px #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    padding: 1em;
+    margin: 1em 0;
+    font-family: Armata, Geneva, Helvetica, Verdana, Arial, sans-serif;
+}
+
+.cpterms .preview .section {
+    clear: both;
+    border: 1px solid transparent;
+    border-width: 1px 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.cpterms .preview .section .section {
+    margin: 5px -5px;
+}
+
+.cpterms .preview .section.hover,
+.cpterms .preview .hover .section {
+    background-color: #feefb3;
+    border-color: #feefb3;
+}
+
+.cpterms .preview h1,
+.cpterms .preview h2,
+.cpterms .preview h3,
+.cpterms .preview h4,
+.cpterms .preview h5,
+.cpterms .preview h6 {
+    margin-top: 0;
+}
+
+.cpterms .loading {
+    text-align: center;
+    padding: 1em;
+}
+
+.cpterms form textarea {
+    display: none;
+}
+
+.cpterms .new {
+    border: 1px solid #ddd;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+.cpterms li.section.placeholder {
+  position: relative;
+}
+
+.cpterms li.section.placeholder:before {
+  position: absolute;
+}
+
+.cpterms .description a.toggle {
+    padding: 0 15px 15px 15px;
+    display: block;
+}
+
+.cpterms .description .label {
+    font-size: 95%;
+    display: inline-block;
+    margin-bottom: 5px;
+}

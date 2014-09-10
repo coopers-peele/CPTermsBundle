@@ -1,0 +1,22 @@
+{% trans_default_domain "CPTermsBundle" %}
+
+<div class="description">
+	{%- if terms.final -%}
+		<div class="label label-danger">
+			{% trans with { '%finalized_at%': terms.finalizedAt|localizeddate('long', 'medium', app.request.locale, null, date_format) } %}terms.finalized{% endtrans %}
+		</div>
+	{%- endif -%}
+	{%- if terms.description -%}
+		<div class="pull-right">
+			<a href="#" class="toggle">
+				<i class="fa fa-chevron-down"></i>
+			</a>
+		</div>
+		<div class="panel-collapse collapse">
+			{{ terms.description|markdown|raw }}
+		</div>
+		<div class="panel-collapse collapse in">
+			{{ terms.description|markdown|raw|truncate(500) }}
+		</div>
+	{%- endif -%}
+</div>

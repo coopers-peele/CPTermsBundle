@@ -1,0 +1,51 @@
+{% extends "CPTermsBundle::admin.html.twig" %}
+
+{% trans_default_domain "CPTermsBundle" %}
+
+{% form_theme form "CPTermsBundle:Form:bootstrap3.html.twig" %}
+
+{% block cp_terms_page_title %}{{ terms.title }} [{{ terms.version }}]{% endblock %}
+
+{% block cp_terms_page_nav %}
+<ul class="nav navbar-nav navbar-right">
+	<li>
+		<a href="{{ path('cp_terms_admin_show', { id: terms.id }) }}"><i class="fa fa-long-arrow-left"></i> {% trans %}terms.edit.cancel{% endtrans %}</a>
+	</li>
+</ul>
+{% endblock %}
+
+{%- block cp_terms_content -%}
+	<div class="cpterms">
+		{{ form(form) }}
+	</div>
+{%- endblock %}
+
+{% block cp_terms_foot_script %}
+{{ parent() }}
+{% javascripts
+	'bundles/cpterms/vendor/epiceditor/epiceditor/js/epiceditor.min.js'
+%}
+	<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<script>
+$( document ).ready(function() {
+	var editor = new EpicEditor({
+		autogrow: {
+			minHeight: 200
+		},
+		basePath: "/bundles/cpterms/vendor/epiceditor/epiceditor",
+		button: {
+			fullscreen: false
+		},
+		textarea: "terms_description",
+		theme: {
+			base: "/themes/base/epiceditor.css",
+			preview: "/themes/preview/bartik.css",
+			editor: "/themes/editor/epic-light.css"
+		}
+	});
+
+	editor.load();
+});
+</script>
+{% endblock %}

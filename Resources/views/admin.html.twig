@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>   <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>      <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>      <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	{% block cp_terms_head_style %}
+		{% stylesheets
+			'bundles/cpterms/vendor/bootstrap/dist/css/bootstrap.min.css'
+			'bundles/cpterms/vendor/font-awesome/css/font-awesome.css'
+			'bundles/cpterms/css/admin.css'
+		%}
+			<link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+		{% endstylesheets %}
+	{% endblock %}
+
+	{% block cp_tos_head_script %}
+	<script>
+	var cpterms = {
+		locale: "{{ app.request.locale }}",
+		sectionMoveUrl: "{{ path('cp_terms_admin_section_move') }}"
+	};
+	</script>
+	{% endblock %}
+</head>
+<body class="{% block cp_terms_page_class %}{% endblock %}">
+	{% block cp_terms_page_nav %}{% endblock %}
+	{% block cp_terms_page_title %}{% endblock %}
+
+	{% block cp_terms_flash -%}
+		{% include "CPTermsBundle::flash.html.twig" %}
+	{%- endblock %}
+
+	{% block cp_terms_content %}{% endblock %}
+
+	{% block cp_terms_foot_script %}
+	{% javascripts
+		'bundles/cpterms/vendor/jquery/dist/jquery.min.js'
+		'bundles/cpterms/vendor/bootstrap/dist/js/bootstrap.min.js'
+	%}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	{% endblock %}
+</body>
+</html>
