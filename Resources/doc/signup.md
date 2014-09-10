@@ -28,7 +28,7 @@ class RegistrationFormType
 }
 ```
 
-To enable validation for `cp_terms_agreement` widget, set `cascade_validation` to true:
+To enable validation for the `cp_terms_agreement` widget, set `cascade_validation` to true:
 
 ```php
 class RegistrationFormType
