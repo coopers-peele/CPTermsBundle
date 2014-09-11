@@ -61,6 +61,11 @@
 						isValidTarget: function( item, container ) {
 							return item.is( ".section" );
 						},
+						afterMove: function ($placeholder, container, $closestItemOrContainer) {
+							$placeholder.height(
+								$closestItemOrContainer.height()
+							);
+						},
 						onDragStart: function( item, container, _super, event ) {
 							if ( !settings.sortable ) {
 								return;
