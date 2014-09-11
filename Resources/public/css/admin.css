@@ -120,21 +120,29 @@
 }
 
 body.dragging, body.dragging * {
-  cursor: move !important;
+    cursor: move !important;
 }
 
 .dragged {
-  position: absolute;
-  opacity: 0.5;
-  z-index: 2000;
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2000;
 }
 
-.cpterms li.section.placeholder {
-  position: relative;
+.cpterms li.section li.placeholder {
+    position: relative;
+    display: block;
+    margin: 5px 0;
+    padding: 0;
+    min-height: 30px;
+    background-color: #f2fbff;
+    border: 1px dashed #fef3e1;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.cpterms li.section.placeholder:before {
-  position: absolute;
+.cpterms li.section li.placeholder:before {
+    position: absolute;
 }
 
 .cpterms .description a.toggle {
