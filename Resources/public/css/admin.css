@@ -132,13 +132,9 @@ body.dragging, body.dragging * {
 .cpterms li.section li.placeholder {
     position: relative;
     display: block;
-    margin: 5px 0;
-    padding: 0;
-    min-height: 30px;
-    background-color: #f2fbff;
+    min-height: 2px;
+    background-color: #a94442;
     border: 1px dashed #fef3e1;
-    border-radius: 5px;
-    box-sizing: border-box;
 }
 
 .cpterms li.section li.placeholder:before {
