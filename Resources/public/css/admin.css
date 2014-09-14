@@ -1,3 +1,7 @@
+.cpterms {
+    padding-bottom: 7em;
+}
+
 .cpterms table.table td,
 .cpterms table.table th {
     border: 1px solid #ddd;

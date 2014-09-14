@@ -17,8 +17,7 @@
 	{% block cp_tos_head_script %}
 	<script>
 	var cpterms = {
-		locale: "{{ app.request.locale }}",
-		sectionMoveUrl: "{{ path('cp_terms_admin_section_move') }}"
+		locale: "{{ app.request.locale }}"
 	};
 	</script>
 	{% endblock %}
