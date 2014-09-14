@@ -15,7 +15,7 @@ Add the package to your project's `composer.json`:
 
 ```json
 "require": {
-	"cp/terms-bundle": "~1.0",
+	"cp/terms-bundle": "~0.9",
 	…
 }
 ```

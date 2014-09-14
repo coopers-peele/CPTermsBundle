@@ -2,7 +2,7 @@
     "name": "cp/terms-bundle",
     "description": "Symfony bundle to manage your app's terms of service",
     "keywords": ["terms of service", "terms and conditions", "terms", "tos", "symfony", "bundle"],
-    "homepage": "http://gitlab.united-asian.com/terms/CPTermsBundle",
+    "homepage": "https://github.com/coopers-peele/terms-bundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
