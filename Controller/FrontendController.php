@@ -2,8 +2,6 @@
 
 namespace CP\Bundle\TermsBundle\Controller;
 
-use cogpowered\FineDiff\Diff;
-
 use CP\Bundle\TermsBundle\Form\Type\AgreementFormType;
 use CP\Bundle\TermsBundle\Propel\Agreement;
 use CP\Bundle\TermsBundle\Propel\Terms;

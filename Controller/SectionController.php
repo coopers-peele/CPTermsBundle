@@ -195,8 +195,6 @@ class SectionController extends Controller
             'level' => $sibling->getLevel(),
             'prefix' => $request->query->get('prefix' )
         );
-
-        return $this->redirect($this->generateUrl('cp_terms_admin_show', array('id' => $terms->getId())));
     }
 
     /**

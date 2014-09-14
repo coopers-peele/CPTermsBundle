@@ -4,8 +4,6 @@ namespace CP\Bundle\TermsBundle\Controller;
 
 use IntlDateFormatter;
 
-use cogpowered\FineDiff\Diff;
-
 use CP\Bundle\TermsBundle\Form\Type\DiffFormType;
 use CP\Bundle\TermsBundle\Form\Type\TermsFormType;
 use CP\Bundle\TermsBundle\Propel\Terms;
