@@ -85,12 +85,12 @@
 								event: event
 							};
 
-							$.ajax( url, {
-								data: {
-									id: dragged_id,
-									dest_id: target_id
-								}
-							});
+//							$.ajax( url, {
+//								data: {
+//									id: dragged_id,
+//									dest_id: target_id
+//								}
+//							});
 
 							_super( $item, container );
 						}
