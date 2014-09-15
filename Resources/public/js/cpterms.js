@@ -65,16 +65,6 @@
 						},
 						onDrag: function ( $item, position, _super, event ) {
 
-							console.log( event.offsetX + " " + event.offsetY );
-
-							if ( event.offsetX > settings.sortable.offsetXChild
-								&& event.offsetY > settings.sortable.offsetYChild ) {
-								$( '.placeholder', $item.parent() ).css( 'margin-left', '40px' );
-								$( '.placeholder', $item.parent() ).outerHeight( '1px' );
-							} else {
-								$( '.placeholder', $item.parent() ).css( 'margin-left', '0px' );
-							}
-
 							_super( $item, position );
 						},
 						onDragStart: function( item, container, _super, event ) {
@@ -88,21 +78,6 @@
 							var dragged_id = $item.data( "section-id" ),
 								target = $( event.target ).closest( ".section" ),
 								target_id = target.data( "section-id" );
-
-							if ( event.offsetX > settings.sortable.offsetXChild
-								&& event.offsetY > settings.sortable.offsetYChild ) {
-								// make li item droppable
-								if ( !$( event.target ).closest( 'li' ).has( 'ul.list-unstyled' ).length ) {
-									$( event.target ).closest( 'li' ).append( '<ul class="list-unstyled">' );
-								}
-
-								// add as a child
-								$item.appendTo( $( 'ul.list-unstyled', $( event.target ).closest( 'li' ) ) );
-
-								//$item.remove();
-							} else {
-								$item.prev().closest( 'li' ).after( $item );
-							}
 
 							var data = {
 								h: target.offsetHeight,
