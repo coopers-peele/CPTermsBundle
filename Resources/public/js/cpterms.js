@@ -59,6 +59,7 @@
 						vertical: true,
 						delay: 100,
 						exclude: ".actions",
+						placeholder: '<li class="placeholder"></li>',
 						isValidTarget: function( item, container ) {
 							return item.is( ".section" );
 						},
