@@ -52,26 +52,56 @@
 					}
 				);
 
-				if ( settings.sortable ) {
+				if ( settings.sortable.enabled ) {
 					var url = $( ".tos" ).data( "drop-url" );
 
 					$( ".tos > ul" ).sortable({
 						vertical: true,
+						delay: 100,
 						exclude: ".actions",
 						isValidTarget: function( item, container ) {
 							return item.is( ".section" );
 						},
+						onDrag: function ( $item, position, _super, event ) {
+
+							console.log( event.offsetX + " " + event.offsetY );
+
+							if ( event.offsetX > settings.sortable.offsetXChild
+								&& event.offsetY > settings.sortable.offsetYChild ) {
+								$( '.placeholder', $item.parent() ).css( 'margin-left', '40px' );
+								$( '.placeholder', $item.parent() ).outerHeight( '1px' );
+							} else {
+								$( '.placeholder', $item.parent() ).css( 'margin-left', '0px' );
+							}
+
+							_super( $item, position );
+						},
 						onDragStart: function( item, container, _super, event ) {
-							if ( !settings.sortable ) {
+							if ( !settings.sortable.enabled ) {
 								return;
 							}
 
 							_super( item, container );
 						},
-						onDrop: function ( item, container, _super, event ) {
-							var dragged_id = item.data( "section-id" ),
+						onDrop: function ( $item, container, _super, event ) {
+							var dragged_id = $item.data( "section-id" ),
 								target = $( event.target ).closest( ".section" ),
 								target_id = target.data( "section-id" );
+
+							if ( event.offsetX > settings.sortable.offsetXChild
+								&& event.offsetY > settings.sortable.offsetYChild ) {
+								// make li item droppable
+								if ( !$( event.target ).closest( 'li' ).has( 'ul.list-unstyled' ).length ) {
+									$( event.target ).closest( 'li' ).append( '<ul class="list-unstyled">' );
+								}
+
+								// add as a child
+								$item.appendTo( $( 'ul.list-unstyled', $( event.target ).closest( 'li' ) ) );
+
+								//$item.remove();
+							} else {
+								$item.prev().closest( 'li' ).after( $item );
+							}
 
 							var data = {
 								h: target.offsetHeight,
@@ -84,14 +114,14 @@
 									id: dragged_id,
 									dest_id: target_id
 								}
-							} );
+							});
 
-							_super( item, container );
+							_super( $item, container );
 						}
 					});
 				}
 
-				if ( $( ".preview", e ).length && !$( ".preview", e ).hasClass( "diff" )) {
+				if ( $( ".preview", e ).length && !$( ".preview", e ).hasClass( "diff" ) ) {
 				}
 
 				$( ".dropdown-menu a" ).click(function() {
@@ -239,7 +269,7 @@
 					var msg = Mustache.render(
 						settings.i18n.section.delete.confirm,
 						{ section: $( this ).closest( "li.section" ).data( "section" ) }
-					);
+					 );
 
 					bootbox.confirm(
 						msg,
@@ -256,7 +286,7 @@
 								helpers.loading( section, false );
 							}
 						}
-					);
+					 );
 
 					return false;
 				});
@@ -265,7 +295,7 @@
 
 				var editor = new EpicEditor( $.extend( true, {}, settings.epiceditor, {
 					textarea: $( "textarea", section )
-				}) );
+				}));
 
 				editor.load();
 
@@ -281,7 +311,7 @@
 
 					editing = false;
 
-					sortable = true;
+					sortable.enabled = true;
 
 					return false;
 				});
@@ -301,7 +331,12 @@
 
 	$.fn.cpterms.defaults = {
 		debug: true,
-		sortable: true,
+		sortable: {
+			enabled: true,
+			dragged: '.dragged',
+			offsetXChild: '200',
+			offsetYChild: '0'
+		},
 		epiceditor: {
 			autogrow: {
 				minHeight: 200
