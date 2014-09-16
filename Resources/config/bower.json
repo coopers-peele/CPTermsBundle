@@ -1,53 +1,53 @@
 {
-  "name": "cp/terms-bundle",
-  "dependencies": {
-    "bootbox": "~4.3.0",
-    "bootstrap": "~3.1",
-    "epiceditor": "~0.2",
-    "font-awesome": "~4.1",
-    "jquery-sortable": "~0.9.12",
-    "jquery-form": "~3.46",
-    "mustache": "~0.8.2",
-    "nestedSortable": "https://github.com/ilikenwf/nestedSortable.git#2.0alpha",
-    "jquery-ui": "~1.11.1"
-  },
-  "overrides": {
-    "bootstrap": {
-      "main": [
-        "./dist/css/bootstrap.css",
-        "./dist/css/bootstrap.min.css",
-        "./dist/css/bootstrap.css.map",
-        "./dist/js/bootstrap.js",
-        "./dist/js/bootstrap.min.js"
-      ]
+    "name": "cp/terms-bundle",
+    "dependencies": {
+        "bootbox": "~4.3.0",
+        "bootstrap": "~3.1",
+        "epiceditor": "~0.2",
+        "font-awesome": "~4.1",
+        "jquery-sortable": "~0.9.12",
+        "jquery-form": "~3.46",
+        "jquery-ui": "~1.11.1",
+        "mustache": "~0.8.2",
+        "nestedSortable": "https://github.com/ilikenwf/nestedSortable.git#2.0alpha"
     },
-    "epiceditor": {
-      "main": [
-        "epiceditor/js/epiceditor.js",
-        "epiceditor/js/epiceditor.min.js",
-        "epiceditor/themes/base/epiceditor.css",
-        "epiceditor/themes/editor/epic-dark.css",
-        "epiceditor/themes/editor/epic-light.css",
-        "epiceditor/themes/preview/bartik.css",
-        "epiceditor/themes/preview/github.css",
-        "epiceditor/themes/preview/preview-dark.css"
-      ]
-    },
-    "jquery-sortable": {
-      "main": [
-        "source/js/jquery-sortable.js",
-        "source/js/jquery-sortable-min.js"
-      ]
-    },
-    "nestedSortable": {
-      "main": [
-        "jquery.mjs.nestedSortable.js"
-      ]
-    },
-    "jquery-ui": {
-      "main": [
-        "jquery-ui.js"
-      ]
+    "overrides": {
+        "bootstrap": {
+            "main": [
+                "./dist/css/bootstrap.css",
+                "./dist/css/bootstrap.min.css",
+                "./dist/css/bootstrap.css.map",
+                "./dist/js/bootstrap.js",
+                "./dist/js/bootstrap.min.js"
+            ]
+        },
+        "epiceditor": {
+            "main": [
+                "epiceditor/js/epiceditor.js",
+                "epiceditor/js/epiceditor.min.js",
+                "epiceditor/themes/base/epiceditor.css",
+                "epiceditor/themes/editor/epic-dark.css",
+                "epiceditor/themes/editor/epic-light.css",
+                "epiceditor/themes/preview/bartik.css",
+                "epiceditor/themes/preview/github.css",
+                "epiceditor/themes/preview/preview-dark.css"
+            ]
+        },
+        "jquery-sortable": {
+            "main": [
+                "source/js/jquery-sortable.js",
+                "source/js/jquery-sortable-min.js"
+            ]
+        },
+		"jquery-ui": {
+			"main": [
+				"jquery-ui.js"
+			]
+		},
+		"nestedSortable": {
+            "main": [
+                "jquery.mjs.nestedSortable.js"
+            ]
+        }
     }
-  }
 }
