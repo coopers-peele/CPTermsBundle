@@ -52,49 +52,21 @@
 					}
 				);
 
-				if ( settings.sortable.enabled ) {
+				if ( settings.sortable ) {
 					var url = $( ".tos" ).data( "drop-url" );
 
-					$( ".tos > ul" ).sortable({
-						vertical: true,
-						delay: 100,
-						exclude: ".actions",
-						placeholder: '<li class="placeholder"></li>',
-						isValidTarget: function( item, container ) {
-							return item.is( ".section" );
-						},
-						onDrag: function ( $item, position, _super, event ) {
-
-							_super( $item, position );
-						},
-						onDragStart: function( item, container, _super, event ) {
-							if ( !settings.sortable.enabled ) {
-								return;
-							}
-
-							_super( item, container );
-						},
-						onDrop: function ( $item, container, _super, event ) {
-							var dragged_id = $item.data( "section-id" ),
-								target = $( event.target ).closest( ".section" ),
-								target_id = target.data( "section-id" );
-
-							var data = {
-								h: target.offsetHeight,
-								dh: event.offsetHeight,
-								event: event
-							};
-
-//							$.ajax( url, {
-//								data: {
-//									id: dragged_id,
-//									dest_id: target_id
-//								}
-//							});
-
-							_super( $item, container );
+					$( ".tos > ul" ).nestedSortable({
+							handle: 'div',
+							items: 'li.section',
+							listType: 'ul',
+							placeholder: 'placeholder',
+							toleranceElement: '> div',
+							isAllowed: function(placeholder, placeholderParent, originalItem) {
+								return true;
+							},
+							protectRoot: true
 						}
-					});
+					);
 				}
 
 				if ( $( ".preview", e ).length && !$( ".preview", e ).hasClass( "diff" ) ) {
@@ -287,7 +259,7 @@
 
 					editing = false;
 
-					sortable.enabled = true;
+					sortable = true;
 
 					return false;
 				});
@@ -307,12 +279,7 @@
 
 	$.fn.cpterms.defaults = {
 		debug: true,
-		sortable: {
-			enabled: true,
-			dragged: '.dragged',
-			offsetXChild: '200',
-			offsetYChild: '0'
-		},
+		sortable: true,
 		epiceditor: {
 			autogrow: {
 				minHeight: 200

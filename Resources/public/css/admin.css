@@ -155,3 +155,16 @@ body.dragging, body.dragging * {
     display: inline-block;
     margin-bottom: 5px;
 }
+
+.cpterms .section ul {
+    list-style: none;
+}
+
+.cpterms .placeholder {
+    outline: 1px dashed #4183C4;
+}
+
+.cpterms .mjs-nestedSortable-error {
+    background: #fbe3e4;
+    border-color: transparent;
+}

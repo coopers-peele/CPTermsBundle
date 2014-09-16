@@ -6,23 +6,25 @@
 <li data-section-id="{{ section.id }}"
 	data-section="{{ (prefix ? prefix ~ ' ' : '') ~ section.title }}"
 	class="section tos_level_{{ section.level }}">
-	{% if not section.terms.final %}
-		{% include "CPTermsBundle:Section:toolbar.html.twig" %}
-	{% endif %}
-	{% block section_title %}
-		<h{{ section.level + 1 }} class="section-title">
-			{% if prefix %}<span class="rank">{{ prefix }}</span>&nbsp;{% endif %}<span class="text">{{ section.title }}</span>
-		</h{{ section.level + 1 }}>
-	{% endblock %}
-	{% block section_body %}
-		<section class="body">{{ section.content|markdown|raw }}</section>
-		{% if not section.leaf %}
-			<ul class="list-unstyled">
-				{% for child in section.children %}
-					{% include "CPTermsBundle:Section:show.html.twig" with { section: child, prefix: prefix } %}
-				{% endfor %}
-			</ul>
+		<div class="term-container">
+		{% if not section.terms.final %}
+			{% include "CPTermsBundle:Section:toolbar.html.twig" %}
 		{% endif %}
+		{% block section_title %}
+			<h{{ section.level + 1 }} class="section-title">
+				{% if prefix %}<span class="rank">{{ prefix }}</span>&nbsp;{% endif %}<span class="text">{{ section.title }}</span>
+			</h{{ section.level + 1 }}>
+		{% endblock %}
+		{% block section_body %}
+			<section class="body">{{ section.content|markdown|raw }}</section>
+		</div>
+			{% if not section.leaf %}
+				<ul class="list-unstyled">
+					{% for child in section.children %}
+						{% include "CPTermsBundle:Section:show.html.twig" with { section: child, prefix: prefix } %}
+					{% endfor %}
+				</ul>
+			{% endif %}
 	{% endblock %}
 </li>
 {% endblock %}
