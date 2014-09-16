@@ -64,7 +64,13 @@
 							isAllowed: function(placeholder, placeholderParent, originalItem) {
 								return true;
 							},
-							protectRoot: true
+							protectRoot: true,
+							change: function() {
+								console.log('placeholder changed position');
+							},
+							sort: function() {
+								console.log('dragging');
+							}
 						}
 					);
 				}
