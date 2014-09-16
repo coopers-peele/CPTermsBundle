@@ -65,6 +65,9 @@
 								return true;
 							},
 							protectRoot: true,
+							relocate: function() {
+								console.log("relocated");
+							},
 							change: function() {
 								console.log('placeholder changed position');
 							},
