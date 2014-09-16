@@ -65,8 +65,18 @@
 								return true;
 							},
 							protectRoot: true,
-							relocate: function() {
+							relocate: function( event, $item, event3 ) {
 								console.log("relocated");
+								var dragged_id = $item.item.data( "section-id" ),
+									target = $item.item.parent().closest('.section'),
+									target_id = target.data( "section-id" );
+
+								$.ajax( url, {
+									data: {
+										id: dragged_id,
+										dest_id: target_id
+									}
+								});
 							},
 							change: function() {
 								console.log('placeholder changed position');
