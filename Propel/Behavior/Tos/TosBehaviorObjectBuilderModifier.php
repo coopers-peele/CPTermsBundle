@@ -2,7 +2,7 @@
 
 namespace CP\Bundle\TermsBundle\Propel\Behavior\Tos;
 
-use CP\Bundle\TermsBundle\Propel\Behavior;
+use Behavior;
 
 class TosBehaviorObjectBuilderModifier
 {
