@@ -6,6 +6,7 @@ use CP\Bundle\TermsBundle\Propel\Terms;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class LatestTermsValidator extends ConstraintValidator
 {
@@ -14,9 +15,15 @@ class LatestTermsValidator extends ConstraintValidator
         $terms = Terms::getLatest();
 
         if ($terms->getId() !== $value) {
-            $this->context->addViolation(
-                $constraint->message
-            );
+            if ($this->context instanceof ExecutionContextInterface) {
+                $this->context->buildViolation($constraint->message)
+                    ->addViolation();
+            } else {
+                // 2.4 API
+                $this->context->addViolation(
+                    $constraint->message
+                );
+            }
         }
     }
 }
