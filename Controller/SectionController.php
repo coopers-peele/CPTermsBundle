@@ -2,6 +2,8 @@
 
 namespace CP\Bundle\TermsBundle\Controller;
 
+use RuntimeException;
+
 use CP\Bundle\TermsBundle\Form\Type\SectionFormType;
 use CP\Bundle\TermsBundle\Propel\SectionQuery;
 use CP\Bundle\TermsBundle\Propel\Section;
@@ -276,7 +278,7 @@ class SectionController extends Controller
                 $this->get('translator')->trans('section.move.success', array(), 'CPTermsBundle', $request->getLocale())
             );
 
-        } catch (Exception $e) {
+        } catch (RuntimeException $e) {
             $data['success'] = false;
             $this->get('session')->getFlashBag()->add(
                 'notice',

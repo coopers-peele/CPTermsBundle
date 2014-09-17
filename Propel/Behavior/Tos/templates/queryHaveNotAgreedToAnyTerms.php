@@ -8,7 +8,7 @@ public function haveNotAgreedToAnyTerms()
 {
     return $this
         ->useAgreementQuery(null, Criteria::LEFT_JOIN)
-            ->filterByAgreedAt(null) // TODO: this selects entity with 0000-00-00 also
+            ->filterByAgreedAt(null)
         ->endUse()
         ->distinct();
 }
