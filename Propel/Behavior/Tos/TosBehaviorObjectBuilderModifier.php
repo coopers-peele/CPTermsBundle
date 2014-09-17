@@ -2,11 +2,13 @@
 
 namespace CP\Bundle\TermsBundle\Propel\Behavior\Tos;
 
+use Behavior;
+
 class TosBehaviorObjectBuilderModifier
 {
     protected $behavior, $builder, $table;
 
-    public function __construct($behavior)
+    public function __construct(Behavior $behavior)
     {
         $this->behavior = $behavior;
         $this->table = $behavior->getTable();
