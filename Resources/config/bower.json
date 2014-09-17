@@ -5,7 +5,6 @@
         "bootstrap": "~3.1",
         "epiceditor": "~0.2",
         "font-awesome": "~4.1",
-        "jquery-sortable": "~0.9.12",
         "jquery-form": "~3.46",
         "jquery-ui": "~1.11.1",
         "mustache": "~0.8.2",
@@ -33,18 +32,12 @@
                 "epiceditor/themes/preview/preview-dark.css"
             ]
         },
-        "jquery-sortable": {
+        "jquery-ui": {
             "main": [
-                "source/js/jquery-sortable.js",
-                "source/js/jquery-sortable-min.js"
+                "jquery-ui.js"
             ]
         },
-		"jquery-ui": {
-			"main": [
-				"jquery-ui.js"
-			]
-		},
-		"nestedSortable": {
+        "nestedSortable": {
             "main": [
                 "jquery.mjs.nestedSortable.js"
             ]
