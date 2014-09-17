@@ -34,7 +34,8 @@
         },
         "jquery-ui": {
             "main": [
-                "jquery-ui.js"
+                "jquery-ui.js",
+				"jquery-ui.min.js"
             ]
         },
         "nestedSortable": {
