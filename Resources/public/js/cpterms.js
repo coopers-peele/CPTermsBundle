@@ -63,12 +63,14 @@
 							return $item.is( ".section" );
 						},
 						getRelativePosition: function( event, $target) {
-							/*        x
+							/*		x
 								 ------>
 								 |
 								y|
 								 v
 							 */
+							var $offset;
+
 							if ( !$target.length ) {
 								$offset =  { X: 0, Y: 0 }
 							} else {
@@ -81,9 +83,6 @@
 							return $offset;
 						},
 						onDrag: function ( $item, position, _super, event ) {
-							var $target = $(event.target).closest('li.section');
-
-							console.log(this.getRelativePosition( event, $target ));
 
 							_super( $item, position );
 						},
@@ -95,18 +94,21 @@
 							_super( $item, container );
 						},
 						onDrop: function ( $item, container, _super, event ) {
-							var dragged_id = $item.data( "section-id" ),
-								target = $( event.target ).closest( ".section" ),
-								target_id = target.data( "section-id" );
-/*
-							console.log( event );
+							var as,
+								dragged_id = $item.data( "section-id" ),
+								$target = $( event.target ).closest( ".section" ),
+								target_id = $target.data( "section-id" );
 
-							console.log( event.target );
+							$relative_position = this.getRelativePosition( event, $target );
 
-							console.log ($item );
-*/
+							if ( $relative_position.X > settings.sortable.offsetXChild ) {
+								as = "child";
+							} else {
+								as = "sibling";
+							}
+console.log(as);
 							var data = {
-								h: target.offsetHeight,
+								h: $target.offsetHeight,
 								dh: event.offsetHeight,
 								event: event
 							};
@@ -114,7 +116,8 @@
 //							$.ajax( url, {
 //								data: {
 //									id: dragged_id,
-//									dest_id: target_id
+//									dest_id: target_id,
+									as: as
 //								}
 //							});
 
