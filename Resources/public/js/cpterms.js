@@ -56,7 +56,6 @@
 					var url = $( ".tos" ).data( "drop-url" );
 
 					$( ".tos > ul" ).sortable({
-						vertical: true,
 						delay: 100,
 						exclude: ".actions",
 						placeholder: '<li class="placeholder"></li>',
@@ -93,7 +92,8 @@
 //							});
 
 							_super( $item, container );
-						}
+						},
+						vertical: true,
 					});
 				}
 
