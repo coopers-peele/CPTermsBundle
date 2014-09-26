@@ -62,18 +62,18 @@
 						isValidTarget: function( $item, container ) {
 							return $item.is( ".section" );
 						},
-						onDrag: function ( $item, position, _super, event ) {
-
-							console.log( event.offsetX + " " + event.offsetY );
-/*
-							if ( event.offsetX > settings.sortable.offsetXChild
-								&& event.offsetY > settings.sortable.offsetYChild ) {
-								$( '.placeholder', $item.parent() ).css( 'margin-left', '40px' );
-								$( '.placeholder', $item.parent() ).outerHeight( '1px' );
-							} else {
-								$( '.placeholder', $item.parent() ).css( 'margin-left', '0px' );
+						getRelativePosition: function( event, $element) {
+							// TODO get position relative to $element
+							return {
+								X: event.offsetX,
+								Y: event.offsetY
 							}
-*/
+						},
+						onDrag: function ( $item, position, _super, event ) {
+							var $element = $(event.target).closest('li.section');
+
+							console.log(this.getRelativePosition(event, $element));
+
 							_super( $item, position );
 						},
 						onDragStart: function( $item, container, _super, event ) {
@@ -81,22 +81,6 @@
 								return;
 							}
 
-/* Most probably this logic will be much simpler now as we don't have to care about placing the placeholder as <ul>
-							if ( event.offsetX > settings.sortable.offsetXChild
-								&& event.offsetY > settings.sortable.offsetYChild ) {
-								// make li item droppable
-									if ( !$( event.target ).closest( 'li' ).has( 'ul.list-unstyled' ).length ) {
-										$( event.target ).closest( 'li' ).append( '<ul class="list-unstyled">' );
-									}
-
-									// add as a child
-										$item.appendTo( $( 'ul.list-unstyled', $( event.target ).closest( 'li' ) ) );
-
-									//$item.remove();
-									} else {
-								$item.prev().closest( 'li' ).after( $item );
-							}
-*/
 							_super( $item, container );
 						},
 						onDrop: function ( $item, container, _super, event ) {
