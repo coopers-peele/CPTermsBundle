@@ -3,13 +3,11 @@
   "dependencies": {
     "bootbox": "~4.3.0",
     "bootstrap": "~3.1",
+    "draggabilly": "~1.1.0",
     "epiceditor": "~0.2",
     "font-awesome": "~4.1",
-    "jquery-sortable": "~0.9.12",
     "jquery-form": "~3.46",
-    "mustache": "~0.8.2",
-    "nestedSortable": "https://github.com/ilikenwf/nestedSortable.git#2.0alpha",
-    "jquery-ui": "~1.11.1"
+    "mustache": "~0.8.2"
   },
   "overrides": {
     "bootstrap": {

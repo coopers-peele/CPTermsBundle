@@ -55,6 +55,12 @@
 				if ( settings.sortable.enabled ) {
 					var url = $( ".tos" ).data( "drop-url" );
 
+					$( ".tos li", e).draggabilly({
+						axis: "y"
+
+
+					});
+					/*
 					$( ".tos > ul" ).sortable({
 						delay: 100,
 						exclude: ".actions",
@@ -95,6 +101,7 @@
 						},
 						vertical: true,
 					});
+*/
 				}
 
 				if ( $( ".preview", e ).length && !$( ".preview", e ).hasClass( "diff" ) ) {

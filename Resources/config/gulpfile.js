@@ -12,6 +12,7 @@ gulp.task('bower-files', function() {
 gulp.task('minify', ['bower-files'], function() {
 	return gulp.src([
 			'../public/vendor/bootbox/bootbox.js',
+			'../public/vendor/draggabilly/draggabilly.js',
 			'../public/vendor/jquery-form/*.js',
 			'../public/vendor/mustache/mustache.js',
 			'!../public/vendor/**/*min.js'
