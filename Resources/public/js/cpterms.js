@@ -63,7 +63,6 @@
 							return item.is( ".section" );
 						},
 						onDrag: function ( $item, position, _super, event ) {
-
 							_super( $item, position );
 						},
 						onDragStart: function( item, container, _super, event ) {
@@ -77,6 +76,12 @@
 							var dragged_id = $item.data( "section-id" ),
 								target = $( event.target ).closest( ".section" ),
 								target_id = target.data( "section-id" );
+
+							console.log( event );
+
+							console.log( event.target );
+
+							console.log ($item );
 
 							var data = {
 								h: target.offsetHeight,

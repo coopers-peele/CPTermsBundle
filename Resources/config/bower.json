@@ -7,9 +7,7 @@
     "font-awesome": "~4.1",
     "jquery-sortable": "~0.9.12",
     "jquery-form": "~3.46",
-    "mustache": "~0.8.2",
-    "nestedSortable": "https://github.com/ilikenwf/nestedSortable.git#2.0alpha",
-    "jquery-ui": "~1.11.1"
+    "mustache": "~0.8.2"
   },
   "overrides": {
     "bootstrap": {
