@@ -98,7 +98,7 @@
 
 							_super( $item, container );
 						},
-						vertical: true,
+						vertical: true
 					});
 				}
 
