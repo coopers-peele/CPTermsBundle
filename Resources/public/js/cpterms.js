@@ -62,17 +62,28 @@
 						isValidTarget: function( $item, container ) {
 							return $item.is( ".section" );
 						},
-						getRelativePosition: function( event, $element) {
-							// TODO get position relative to $element
-							return {
-								X: event.offsetX,
-								Y: event.offsetY
+						getRelativePosition: function( event, $target) {
+							/*        x
+								 ------>
+								 |
+								y|
+								 v
+							 */
+							if ( !$target.length ) {
+								$offset =  { X: 0, Y: 0 }
+							} else {
+								$offset = {
+									X: event.pageX - $target.offset().left,
+									Y: event.pageY - $target.offset().top
+								}
 							}
+
+							return $offset;
 						},
 						onDrag: function ( $item, position, _super, event ) {
-							var $element = $(event.target).closest('li.section');
+							var $target = $(event.target).closest('li.section');
 
-							console.log(this.getRelativePosition(event, $element));
+							console.log(this.getRelativePosition( event, $target ));
 
 							_super( $item, position );
 						},
