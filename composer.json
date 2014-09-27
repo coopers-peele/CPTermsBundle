@@ -16,10 +16,10 @@
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.0",
         "sensio/framework-extra-bundle": "~3.0",
-        "propel/propel-bundle": "~1.4",
-        "willdurand/propel-typehintable-behavior": "1.0.*",
+        "propel/propel-bundle": "~1.4@dev",
+        "willdurand/propel-typehintable-behavior": "~1.0",
         "cebe/markdown": "*",
-        "cogpowered/finediff": "0.3.*",
+        "cogpowered/finediff": "~0.3",
         "dzango/twig-truncate-extension": "~1.0"
     },
     "autoload": {
