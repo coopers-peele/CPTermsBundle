@@ -63,7 +63,7 @@
 							return $item.is( ".section" );
 						},
 						getRelativePosition: function( event, $target ) {
-							/*		x
+							/*		 x
 								 ------>
 								 |
 								y|
