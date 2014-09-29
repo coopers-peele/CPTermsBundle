@@ -239,7 +239,7 @@ class SectionController extends Controller
 
         $terms = $section->getTerms();
 
-        // [OP 2014-09-07] Veiryf that the target section is part of the same terms!
+        // [OP 2014-09-07] Verify that the target section is part of the same terms!
         $dest = $this->getQuery()
             ->filterByTermsId($terms->getId())
             ->findPk($request->query->get('dest_id'));
@@ -251,21 +251,14 @@ class SectionController extends Controller
         $data = array();
 
         try {
-            switch ($request->request->get('position')) {
-                case 'inside':
+            switch ($request->query->get('as')) {
+                case 'child':
                     $section->moveToFirstChildOf($dest);
                     break;
-                case 'first':
-                    $section->moveToFirstChildOf($dest);
-                    break;
-                case 'last':
-                    $section->moveToLastChildOf($dest);
-                    break;
-                case 'before':
-                    $section->moveToPrevSiblingOf($dest);
-                    break;
-                case 'after':
-                    $section->moveToNextSiblingOf($dest);
+                case 'sibling':
+                    $dest->isRoot() ?
+                        $section->moveToFirstChildOf($dest)
+                        : $section->moveToNextSiblingOf($dest);
                     break;
                 default:
                     $section->moveToLastChildOf($dest);

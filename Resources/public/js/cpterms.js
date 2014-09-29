@@ -52,29 +52,63 @@
 					}
 				);
 
-				if ( settings.sortable ) {
+				if ( settings.sortable.enabled ) {
 					var url = $( ".tos" ).data( "drop-url" );
 
 					$( ".tos > ul" ).sortable({
-						vertical: true,
+						delay: 100,
 						exclude: ".actions",
-						isValidTarget: function( item, container ) {
-							return item.is( ".section" );
+						placeholder: '<li class="placeholder"></li>',
+						isValidTarget: function( $item, container ) {
+							return $item.is( ".section" );
 						},
-						onDragStart: function( item, container, _super, event ) {
-							if ( !settings.sortable ) {
+						getRelativePosition: function( event, $target) {
+							/*		x
+								 ------>
+								 |
+								y|
+								 v
+							 */
+							var $offset;
+
+							if ( !$target.length ) {
+								$offset =  { X: 0, Y: 0 }
+							} else {
+								$offset = {
+									X: event.pageX - $target.offset().left,
+									Y: event.pageY - $target.offset().top
+								}
+							}
+
+							return $offset;
+						},
+						onDrag: function ( $item, position, _super, event ) {
+
+							_super( $item, position );
+						},
+						onDragStart: function( $item, container, _super, event ) {
+							if ( !settings.sortable.enabled ) {
 								return;
 							}
 
-							_super( item, container );
+							_super( $item, container );
 						},
-						onDrop: function ( item, container, _super, event ) {
-							var dragged_id = item.data( "section-id" ),
-								target = $( event.target ).closest( ".section" ),
-								target_id = target.data( "section-id" );
+						onDrop: function ( $item, container, _super, event ) {
+							var as,
+								dragged_id = $item.data( "section-id" ),
+								$target = $( event.target ).closest( ".section" ),
+								target_id = $target.data( "section-id" );
+
+							$relative_position = this.getRelativePosition( event, $target );
+
+							if ( $relative_position.X > settings.sortable.offsetXChild ) {
+								as = "child";
+							} else {
+								as = "sibling";
+							}
 
 							var data = {
-								h: target.offsetHeight,
+								h: $target.offsetHeight,
 								dh: event.offsetHeight,
 								event: event
 							};
@@ -82,16 +116,21 @@
 							$.ajax( url, {
 								data: {
 									id: dragged_id,
-									dest_id: target_id
+									dest_id: target_id,
+									as: as
+								},
+								success: function( data ) {
+									location.reload( true );
 								}
-							} );
+							});
 
-							_super( item, container );
-						}
+							_super( $item, container );
+						},
+						vertical: true
 					});
 				}
 
-				if ( $( ".preview", e ).length && !$( ".preview", e ).hasClass( "diff" )) {
+				if ( $( ".preview", e ).length && !$( ".preview", e ).hasClass( "diff" ) ) {
 				}
 
 				$( ".dropdown-menu a" ).click(function() {
@@ -239,7 +278,7 @@
 					var msg = Mustache.render(
 						settings.i18n.section.delete.confirm,
 						{ section: $( this ).closest( "li.section" ).data( "section" ) }
-					);
+					 );
 
 					bootbox.confirm(
 						msg,
@@ -256,7 +295,7 @@
 								helpers.loading( section, false );
 							}
 						}
-					);
+					 );
 
 					return false;
 				});
@@ -265,7 +304,7 @@
 
 				var editor = new EpicEditor( $.extend( true, {}, settings.epiceditor, {
 					textarea: $( "textarea", section )
-				}) );
+				}));
 
 				editor.load();
 
@@ -281,7 +320,7 @@
 
 					editing = false;
 
-					sortable = true;
+					sortable.enabled = true;
 
 					return false;
 				});
@@ -301,7 +340,12 @@
 
 	$.fn.cpterms.defaults = {
 		debug: true,
-		sortable: true,
+		sortable: {
+			enabled: true,
+			dragged: '.dragged',
+			offsetXChild: '200',
+			offsetYChild: '0'
+		},
 		epiceditor: {
 			autogrow: {
 				minHeight: 200

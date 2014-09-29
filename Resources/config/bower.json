@@ -36,6 +36,16 @@
         "source/js/jquery-sortable.js",
         "source/js/jquery-sortable-min.js"
       ]
+    },
+    "nestedSortable": {
+      "main": [
+        "jquery.mjs.nestedSortable.js"
+      ]
+    },
+    "jquery-ui": {
+      "main": [
+        "jquery-ui.js"
+      ]
     }
   }
 }
