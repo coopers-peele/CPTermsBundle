@@ -62,7 +62,7 @@
 						isValidTarget: function( $item, container ) {
 							return $item.is( ".section" );
 						},
-						getRelativePosition: function( event, $target) {
+						getRelativePosition: function( event, $target ) {
 							/*		x
 								 ------>
 								 |
