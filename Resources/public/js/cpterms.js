@@ -113,13 +113,16 @@
 								event: event
 							};
 
-//							$.ajax( url, {
-//								data: {
-//									id: dragged_id,
-//									dest_id: target_id,
-//									as: as
-//								}
-//							});
+							$.ajax( url, {
+								data: {
+									id: dragged_id,
+									dest_id: target_id,
+									as: as
+								},
+								success: function( data ) {
+									location.reload( true );
+								}
+							});
 
 							_super( $item, container );
 						},
