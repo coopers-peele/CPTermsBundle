@@ -72,7 +72,7 @@
 							var $offset;
 
 							if ( !$target.length ) {
-								$offset =  { X: 0, Y: 0 }
+								$offset = { X: 0, Y: 0 }
 							} else {
 								$offset = {
 									X: event.pageX - $target.offset().left,
