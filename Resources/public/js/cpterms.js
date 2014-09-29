@@ -62,7 +62,7 @@
 						isValidTarget: function( $item, container ) {
 							return $item.is( ".section" );
 						},
-						getRelativePosition: function( event, $target) {
+						getRelativePosition: function( event, $target ) {
 							/*		x
 								 ------>
 								 |
@@ -72,7 +72,7 @@
 							var $offset;
 
 							if ( !$target.length ) {
-								$offset =  { X: 0, Y: 0 }
+								$offset = { X: 0, Y: 0 }
 							} else {
 								$offset = {
 									X: event.pageX - $target.offset().left,
@@ -278,7 +278,7 @@
 					var msg = Mustache.render(
 						settings.i18n.section.delete.confirm,
 						{ section: $( this ).closest( "li.section" ).data( "section" ) }
-					 );
+					);
 
 					bootbox.confirm(
 						msg,
@@ -295,7 +295,7 @@
 								helpers.loading( section, false );
 							}
 						}
-					 );
+					);
 
 					return false;
 				});
