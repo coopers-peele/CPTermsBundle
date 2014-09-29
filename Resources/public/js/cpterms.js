@@ -278,7 +278,7 @@
 					var msg = Mustache.render(
 						settings.i18n.section.delete.confirm,
 						{ section: $( this ).closest( "li.section" ).data( "section" ) }
-					 );
+					);
 
 					bootbox.confirm(
 						msg,
@@ -295,7 +295,7 @@
 								helpers.loading( section, false );
 							}
 						}
-					 );
+					);
 
 					return false;
 				});
