@@ -106,7 +106,7 @@
 							} else {
 								as = "sibling";
 							}
-console.log(as);
+
 							var data = {
 								h: $target.offsetHeight,
 								dh: event.offsetHeight,
@@ -117,7 +117,7 @@ console.log(as);
 //								data: {
 //									id: dragged_id,
 //									dest_id: target_id,
-									as: as
+//									as: as
 //								}
 //							});
 
