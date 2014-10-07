@@ -125,7 +125,7 @@
 										success: function( sections_data ) {
 											$( '.tos > ul.list-unstyled' ).html( sections_data );
 
-											helpers.initTerms.apply( e );
+											helpers.initTerms( e );
 											helpers.initSectionToolbar( e );
 										}
 									})
