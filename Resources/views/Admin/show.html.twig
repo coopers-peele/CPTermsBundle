@@ -44,9 +44,9 @@
 	{% include "CPTermsBundle:Admin:description.html.twig" %}
 
 	<div class="preview">
-		<section class="tos" data-drop-url="{{ path('cp_terms_admin_section_move') }}">
+		<section class="tos" data-drop-url="{{ path('cp_terms_admin_section_move') }}" data-sections-url="{{ path('cp_terms_admin_section_show', { 'id': root.id }) }}">
 		<ul class="list-unstyled">
-			{% include "CPTermsBundle:Section:show.html.twig" with { section: root, prefix: "" } %}
+			{{ render(controller('CPTermsBundle:Section:show', { 'id': root.id, prefix: "" })) }}
 		</ul>
 		</section>
 	</div>

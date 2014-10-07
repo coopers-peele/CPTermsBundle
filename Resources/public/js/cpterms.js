@@ -54,6 +54,7 @@
 
 				if ( settings.sortable.enabled ) {
 					var url = $( ".tos" ).data( "drop-url" );
+					var sections_url = $(".tos" ).data( "sections-url" );
 
 					$( ".tos > ul" ).sortable({
 						delay: 100,
@@ -120,7 +121,13 @@
 									as: as
 								},
 								success: function( data ) {
-									location.reload( true );
+									$.ajax( sections_url, {
+										success: function( sections_data ) {
+											$( '.tos > ul.list-unstyled' ).html( sections_data );
+
+											helpers.initTerms.apply( this );
+										}
+									})
 								}
 							});
 
@@ -343,7 +350,7 @@
 		sortable: {
 			enabled: true,
 			dragged: '.dragged',
-			offsetXChild: '200',
+			offsetXChild: '100',
 			offsetYChild: '0'
 		},
 		epiceditor: {

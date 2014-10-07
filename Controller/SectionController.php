@@ -24,15 +24,24 @@ class SectionController extends Controller
     /**
      * Show section
      *
-     * @Route("/", name="cp_terms_admin_section_show")
+     * @Route("/{id}", name="cp_terms_admin_section_show", requirements={"id": "\d+"})
      * @Template()
      */
-    public function indexAction(Request $request)
+    public function showAction(Request $request, $id)
     {
+        $prefix = '';
+
+        if ($request->query->get('prefix')) {
+            $prefix = $request->query->get('prefix');
+        }
+
         $section = $this->getSection($id, false);
+        $terms = $section->getTerms();
 
         return array(
-            'section' => $section
+            'section' => $terms->getRoot(),
+            'terms' => $terms,
+            'prefix' => $prefix
         );
     }
 
