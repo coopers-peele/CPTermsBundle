@@ -54,6 +54,7 @@
 
 				if ( settings.sortable.enabled ) {
 					var url = $( ".tos" ).data( "drop-url" );
+					var sections_url = $(".tos" ).data( "sections-url" );
 
 					$( ".tos > ul" ).sortable({
 						delay: 100,
@@ -120,7 +121,14 @@
 									as: as
 								},
 								success: function( data ) {
-									location.reload( true );
+									$.ajax( sections_url, {
+										success: function( sections_data ) {
+											$( '.tos > ul.list-unstyled' ).html( sections_data );
+
+											helpers.initTerms.apply( e );
+											helpers.initSectionToolbar( e );
+										}
+									})
 								}
 							});
 
@@ -300,6 +308,7 @@
 					return false;
 				});
 			},
+
 			initSectionForm: function( section ) {
 
 				var editor = new EpicEditor( $.extend( true, {}, settings.epiceditor, {
@@ -320,7 +329,7 @@
 
 					editing = false;
 
-					sortable.enabled = true;
+					settings.sortable.enabled = true;
 
 					return false;
 				});
@@ -343,7 +352,7 @@
 		sortable: {
 			enabled: true,
 			dragged: '.dragged',
-			offsetXChild: '200',
+			offsetXChild: '100',
 			offsetYChild: '0'
 		},
 		epiceditor: {
