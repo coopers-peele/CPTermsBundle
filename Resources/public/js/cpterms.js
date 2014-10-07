@@ -125,7 +125,8 @@
 										success: function( sections_data ) {
 											$( '.tos > ul.list-unstyled' ).html( sections_data );
 
-											helpers.initTerms.apply( this );
+											helpers.initTerms.apply( e );
+											helpers.initSectionToolbar( e );
 										}
 									})
 								}
@@ -307,6 +308,7 @@
 					return false;
 				});
 			},
+
 			initSectionForm: function( section ) {
 
 				var editor = new EpicEditor( $.extend( true, {}, settings.epiceditor, {
@@ -327,7 +329,7 @@
 
 					editing = false;
 
-					sortable.enabled = true;
+					settings.sortable.enabled = true;
 
 					return false;
 				});
