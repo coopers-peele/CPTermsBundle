@@ -54,7 +54,6 @@
 
 				if ( settings.sortable.enabled ) {
 					var url = $( ".tos" ).data( "drop-url" );
-					var sections_url = $(".tos" ).data( "sections-url" );
 
 					$( ".tos > ul" ).sortable({
 						delay: 100,
@@ -120,15 +119,8 @@
 									dest_id: target_id,
 									as: as
 								},
-								success: function( data ) {
-									$.ajax( sections_url, {
-										success: function( sections_data ) {
-											$( '.tos > ul.list-unstyled' ).html( sections_data );
-
-											helpers.initTerms.apply( this );
-										}
-									})
-								}
+								async: false,
+								success: helpers.reloadSections( data )
 							});
 
 							_super( $item, container );
@@ -331,6 +323,17 @@
 
 					return false;
 				});
+			},
+			reloadSections: function( data ) {
+				var sections_url = $( ".tos" ).data( "sections-url" );
+
+				$.ajax( sections_url, {
+					success: function( sections_data ) {
+						$( '.tos > ul.list-unstyled' ).html( sections_data );
+
+						helpers.initTerms.apply( this );
+					}
+				})
 			}
 		};
 
