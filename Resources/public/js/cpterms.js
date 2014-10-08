@@ -63,6 +63,7 @@
 						delay: 100,
 						exclude: ".actions, li.root-section",
 						placeholder: '<li class="placeholder"></li>',
+						pullPlaceholder: false,
 						isValidTarget: function( $item, container ) {
 							return $item.is( ".section" );
 						},
@@ -115,16 +116,6 @@
 								dragged_id = $item.data( "section-id" ),
 								$target = $( event.target ).closest( ".section" ),
 								target_id = $target.data( "section-id" );
-
-							// prevents placing target before root terms
-							if (!$target.length) {
-								$target = $('.root-section');
-								target_id = $target.data( "section-id" );
-
-								_super( $item, container );
-
-								location.reload();
-							}
 
 							$relative_position = this.getRelativePosition( event, $target );
 
