@@ -40,7 +40,7 @@
 
 			initTerms: function( e ) {
 
-				$( ".tos .section" ).hover(
+				$( ".tos .section:not('.root-section')" ).hover(
 					function( e ) {
 						$( this ).parent().closest( ".section" ).removeClass( "hover" );
 						$( this ).addClass( "hover" );
@@ -48,7 +48,10 @@
 					},
 					function() {
 						$( this ).removeClass( "hover" );
-						$( this ).parent().closest( ".section" ).addClass( "hover" );
+
+						if (!$(this ).parent().closest(".section" ).hasClass("root-section")) {
+							$( this ).parent().closest( ".section" ).addClass( "hover" );
+						}
 					}
 				);
 
