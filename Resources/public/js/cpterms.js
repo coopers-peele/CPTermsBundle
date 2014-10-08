@@ -116,6 +116,16 @@
 								$target = $( event.target ).closest( ".section" ),
 								target_id = $target.data( "section-id" );
 
+							// prevents placing target before root terms
+							if (!$target.length) {
+								$target = $('.root-section');
+								target_id = $target.data( "section-id" );
+
+								_super( $item, container );
+
+								location.reload();
+							}
+
 							$relative_position = this.getRelativePosition( event, $target );
 
 							if ( $relative_position.X > settings.sortable.offsetXChild ) {
