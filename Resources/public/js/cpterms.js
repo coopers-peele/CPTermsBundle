@@ -91,16 +91,16 @@
 
 							// change placeholder according to the mouse offset
 							var $target = $( event.target ).closest( ".section" ),
-								$relative_position = this.getRelativePosition( event, $target );
+								$relative_position = this.getRelativePosition( event, $target ),
+								$placeholder = $( '.placeholder', $item.closest('.tos') );
 
 							var left = settings.sortable.offsetXChild + 'px';
 
 							if ( $relative_position.X > settings.sortable.offsetXChild ) {
-								$( '.placeholder', $item.closest('.tos') ).css( 'margin-left', left );
+								$placeholder.css( 'margin-left', left );
 							} else {
-								$( '.placeholder', $item.closest('.tos') ).css( 'margin-left', '0px' );
+								$placeholder.css( 'margin-left', '0px' );
 							}
-
 
 							_super( $item, position );
 						},
