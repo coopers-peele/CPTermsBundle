@@ -49,7 +49,7 @@
 					function() {
 						$( this ).removeClass( "hover" );
 
-						if (!$(this ).parent().closest(".section" ).hasClass("root-section")) {
+						if ( !$( this ).parent().closest(".section" ).hasClass( "root-section" ) ) {
 							$( this ).parent().closest( ".section" ).addClass( "hover" );
 						}
 					}
@@ -92,7 +92,7 @@
 							// change placeholder according to the mouse offset
 							var $target = $( event.target ).closest( ".section" ),
 								$relative_position = this.getRelativePosition( event, $target ),
-								$placeholder = $( '.placeholder', $item.closest('.tos') );
+								$placeholder = $( '.placeholder', $item.closest( '.tos' ) );
 
 							var left = settings.sortable.offsetXChild + 'px';
 
