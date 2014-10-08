@@ -85,6 +85,19 @@
 						},
 						onDrag: function ( $item, position, _super, event ) {
 
+							// change placeholder according to the mouse offset
+							var $target = $( event.target ).closest( ".section" ),
+								$relative_position = this.getRelativePosition( event, $target );
+
+							var left = settings.sortable.offsetXChild + 'px';
+
+							if ( $relative_position.X > settings.sortable.offsetXChild ) {
+								$( '.placeholder', $item.closest('.tos') ).css( 'margin-left', left );
+							} else {
+								$( '.placeholder', $item.closest('.tos') ).css( 'margin-left', '0px' );
+							}
+
+
 							_super( $item, position );
 						},
 						onDragStart: function( $item, container, _super, event ) {
