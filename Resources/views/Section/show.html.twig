@@ -5,7 +5,7 @@
 {% endif %}
 <li data-section-id="{{ section.id }}"
 	data-section="{{ (prefix ? prefix ~ ' ' : '') ~ section.title }}"
-	class="section tos_level_{{ section.level }}">
+	class="section tos_level_{{ section.level }}{% if section.isRoot %} root-section{% endif %}" >
 	{% if not section.terms.final %}
 		{% include "CPTermsBundle:Section:toolbar.html.twig" %}
 	{% endif %}

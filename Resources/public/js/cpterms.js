@@ -58,7 +58,7 @@
 
 					$( ".tos > ul" ).sortable({
 						delay: 100,
-						exclude: ".actions",
+						exclude: ".actions, li.root-section",
 						placeholder: '<li class="placeholder"></li>',
 						isValidTarget: function( $item, container ) {
 							return $item.is( ".section" );
