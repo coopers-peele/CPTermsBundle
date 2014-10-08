@@ -137,6 +137,10 @@
 									as: as
 								},
 								success: function( data ) {
+									if ( !data.success  ) {
+										location.reload( true );
+									}
+
 									$.ajax( sections_url, {
 										success: function( sections_data ) {
 											$( '.tos > ul.list-unstyled' ).html( sections_data );
