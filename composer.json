@@ -23,9 +23,8 @@
         "dzango/twig-truncate-extension": "~1.0"
     },
     "autoload": {
-        "psr-0": { "CP\\Bundle\\TermsBundle": "" }
+        "psr-4": { "CP\\Bundle\\TermsBundle\\": "" }
     },
-    "target-dir": "CP/Bundle/TermsBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "0.9.x-dev"
