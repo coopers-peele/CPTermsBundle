@@ -34,8 +34,8 @@ class FrontendController extends Controller
      */
     public function agreeAction(Request $request)
     {
-        if ($this->container->has('cp_terms.entity_finder.service')) {
-            $entity_finder = $this->container->get('cp_terms.entity_finder.service');
+        if ($this->container->has('cp_terms.entity_finder')) {
+            $entity_finder = $this->container->get('cp_terms.entity_finder');
 
             $entity = $entity_finder->findEntity();
         } else {
@@ -87,8 +87,8 @@ class FrontendController extends Controller
     public function diffAction(Request $request)
     {
 
-        if ($this->container->has('cp_terms.entity_finder.service')) {
-            $entity_finder = $this->container->get('cp_terms.entity_finder.service');
+        if ($this->container->has('cp_terms.entity_finder')) {
+            $entity_finder = $this->container->get('cp_terms.entity_finder');
 
             $entity = $entity_finder->findEntity();
         } else {

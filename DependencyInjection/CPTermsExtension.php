@@ -31,7 +31,7 @@ class CPTermsExtension extends Extension
 
         // entity finder
         if ($config['entity_finder']['enabled'] && $bundles['FOSUserBundle']) {
-            $container->setAlias('cp_terms.entity_finder.service', $config['entity_finder']['service']);
+            $container->setAlias('cp_terms.entity_finder', $config['entity_finder']['service']);
             $loader->load('entity_finder.yml');
         } else {
             $config['entity_finder']['enabled'] = false;

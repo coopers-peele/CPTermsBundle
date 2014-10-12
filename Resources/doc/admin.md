@@ -9,6 +9,7 @@ Routing
 Add the `admin.yml` routing configuration to your application.
 
 ```yaml
+# app/config/routing.yml
 cp_terms_bundle_admin:
     resource: "@CPTermsBundle/Resources/config/routing/admin.yml"
 ```
@@ -22,10 +23,18 @@ All admin pages have restricted access. Access is restricted to users who have t
 
 Make sure that the appropriate users are given this role.
 
-### Grant access to specific users
-
 For example, if you use the FOSUserBundle, you can use its command to grant the `ROLE_CP_TERMS` role to a specific user:
 
 ```
 php app/console fos:user:promote {username} ROLE_CP_TERMS
 ```
+
+Operations
+----------
+
+The administration pages allow you to perform the following operations:
+
+* create terms
+* clone terms
+* edit terms
+* finalize terms

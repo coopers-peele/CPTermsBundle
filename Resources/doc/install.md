@@ -1,4 +1,4 @@
-Installation
+CPTermsBundle - Installation
 =============
 
 Requirements
@@ -15,7 +15,7 @@ Add the package to your project's `composer.json`:
 
 ```json
 "require": {
-	"cp/terms-bundle": "~0.9",
+	"cp/terms-bundle": "~1.0",
 	…
 }
 ```
@@ -45,16 +45,32 @@ Build the Propel model:
 php app/console propel:sql:build
 ```
 
-Update your database
+Update your database:
 
 ```
 php app/console propel:migration:generate-diff
+# Check the migration file first!
 php app/console propel:migration:migrate
 ```
 
-Add the following code to your routing configuration:
+Update your routing configuration:
 
 ```yaml
+# app/config/routing.yml
+
+# admin routes
 cp_terms_bundle_admin:
     resource: "@CPTermsBundle/Resources/config/routing/admin.yml"
+
+# frontend routes
+cp_terms_bundle_frontend:
+    resource: "@CPTermsBundle/Resources/config/routing/frontend.yml"
 ```
+
+Next steps
+----------
+
+You can now:
+
+* read more about the concepts here: [General concepts](concepts.md)
+* learn how to create your first terms of service: [Administration](admin.md)
