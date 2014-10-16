@@ -26,7 +26,7 @@ Current or latest terms of service
 
 At any point in time, you can only have 1 version of your terms of service in force. This is referred to as the "current" or "latest" terms of service.
 
-For the CPTermsBundle, the latest terms are the terms that were finalized the latest in time. NOn-finalized terms (i.e. in draft form) are never considered to be the latest terms. If you have several terms that are finalized, the terms that were finalized last will be considered to be the latest terms.
+For the CPTermsBundle, the latest terms are the terms that were finalized the latest in time. Non-finalized terms (i.e. in draft form) are never considered to be the latest terms. If you have several terms that are finalized, the terms that were finalized last will be considered to be the latest terms.
 
 Multiple versions
 -----------------
