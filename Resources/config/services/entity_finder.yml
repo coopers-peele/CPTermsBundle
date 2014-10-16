@@ -1,13 +1,13 @@
 parameters:
     cp_terms.entity_finder.user.class: CP\Bundle\TermsBundle\Finder\UserEntityFinder
-    cp_terms.entity_finder.profile.class: CP\Bundle\TermsBundle\Finder\UserEntityFinder
+    cp_terms.entity_finder.profile.class: CP\Bundle\TermsBundle\Finder\UserProfileEntityFinder
 
 services:
     cp_terms.entity_finder.user:
-        class: %cp_terms.entity_finder.user.class% 
+        class: %cp_terms.entity_finder.user.class%
         arguments:
             - @security.context
     cp_terms.entity_finder.profile:
-        class: %cp_terms.entity_finder.profile.class% 
+        class: %cp_terms.entity_finder.profile.class%
         arguments:
             - @security.context
