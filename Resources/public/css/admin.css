@@ -155,3 +155,7 @@ body.dragging, body.dragging * {
     display: inline-block;
     margin-bottom: 5px;
 }
+
+.create-term {
+    margin-top: 20px;
+}
