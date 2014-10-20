@@ -4,6 +4,10 @@
 
 {% block cp_terms_page_title %}{% trans %}terms.page_title{% endtrans %}{% endblock %}
 
+{% block cp_terms_page_nav %}
+    <a href="{{ path('cp_terms_admin_create') }}" class="btn btn-default pull-right create-term">{% trans %}terms.create{% endtrans %}</a>
+{% endblock %}
+
 {% block cp_terms_content %}
 <div class="cpterms">
 	<table class="table table-condensed table-hover">
