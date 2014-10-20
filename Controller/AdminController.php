@@ -8,6 +8,7 @@ use CP\Bundle\TermsBundle\Form\Type\DiffFormType;
 use CP\Bundle\TermsBundle\Form\Type\TermsFormType;
 use CP\Bundle\TermsBundle\Propel\Terms;
 use CP\Bundle\TermsBundle\Propel\TermsQuery;
+use CP\Bundle\TermsBundle\Propel\Section;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -34,6 +35,45 @@ class AdminController extends Controller
         return array(
             'terms' => $terms,
             'date_format' => $this->container->getParameter('cp_terms.date_format')
+        );
+    }
+
+    /**
+     * @Route("/create", name="cp_terms_admin_create")
+     * @Template("CPTermsBundle:Admin:createTerm.html.twig")
+     */
+    public function createTermAction(Request $request)
+    {
+        $term = new Terms();
+
+        $form = $this->createForm(
+            new TermsFormType(),
+            $term,
+            array(
+                'action' => $this->generateUrl('cp_terms_admin_create')
+            )
+        );
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $tos_section = new Section();
+            $tos_section->makeRoot();
+            $tos_section->setTitle('Terms of service');
+
+            $term->addSection($tos_section);
+            $term->save();
+
+            return $this->redirect($this->generateUrl(
+                'cp_terms_admin_show',
+                array(
+                    'id' => $term->getId()
+                )
+            ));
+        }
+
+        return array(
+            'form' => $form->createView()
         );
     }
 

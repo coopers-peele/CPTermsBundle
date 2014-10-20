@@ -80,6 +80,7 @@ terms:
         show:            Show
     choice:
         none:            None
+    create:              Create New
     delete:
         confirm: >
             You are about to delete these terms. This operation cannot be undone.
