@@ -78,6 +78,7 @@ terms:
         edit:            Modifier
         finalize:        Finaliser
         show:            Afficher
+    create:              Créer un nouveau
     choice:
         none:            Sans
     delete:
