@@ -40,9 +40,9 @@ class AdminController extends Controller
 
     /**
      * @Route("/create", name="cp_terms_admin_create")
-     * @Template("CPTermsBundle:Admin:createTerm.html.twig")
+     * @Template("CPTermsBundle:Admin:create.html.twig")
      */
-    public function createTermAction(Request $request)
+    public function createAction(Request $request)
     {
         $term = new Terms();
 
@@ -59,7 +59,7 @@ class AdminController extends Controller
         if ($form->isValid()) {
             $tos_section = new Section();
             $tos_section->makeRoot();
-            $tos_section->setTitle('Terms of service');
+//            $tos_section->setTitle('Terms of service');
 
             $term->addSection($tos_section);
             $term->save();
