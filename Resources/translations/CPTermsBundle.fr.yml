@@ -1,7 +1,7 @@
 agreement:
     agree:               J'accepte
     decline:             Je refuse
-    success:             Successfully Agreed CHANGE_TO_FR.
+    success:             Votre accord a été enregistré.
     intro: >
         <p>Avant de pouvoir utiliser notre site, il vous est demandé d'accepter
         nos conditions d'utilisation.</p>
