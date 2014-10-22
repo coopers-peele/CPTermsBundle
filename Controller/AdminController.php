@@ -59,7 +59,15 @@ class AdminController extends Controller
         if ($form->isValid()) {
             $tos_section = new Section();
             $tos_section->makeRoot();
-//            $tos_section->setTitle('Terms of service');
+
+            $tos_section->setTitle(
+                $this->container->get('translator')->trans(
+                    'terms.section.root.title',
+                    array(),
+                    'CPTermsBundle',
+                    $request->getLocale()
+                )
+            );
 
             $term->addSection($tos_section);
             $term->save();
