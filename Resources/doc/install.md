@@ -67,6 +67,17 @@ cp_terms_bundle_frontend:
     resource: "@CPTermsBundle/Resources/config/routing/frontend.yml"
 ```
 
+Updaate your app's configuration:
+
+```yaml
+# app/config/config.yml
+
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: @CPTermsBundle/Resources/config/config.yml }
+```
+
 Next steps
 ----------
 
