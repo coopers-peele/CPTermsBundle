@@ -65,8 +65,8 @@ section:
         title:
             label:       Titre
     move:
-        error:           Section was not moved successfully.
-        success:         The section has been moved successfully.
+        error:           "La section n'a pas pu être déplacée."
+        success:         La section a été déplacée avec succès.
     new:
         title:           %prefix% Nouvelle section.
 
@@ -78,7 +78,7 @@ terms:
         edit:            Modifier
         finalize:        Finaliser
         show:            Afficher
-    create:              Créer un nouveau
+    create:              Créer une nouvelle version
     choice:
         none:            Sans
     delete:
