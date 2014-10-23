@@ -19,7 +19,7 @@ diff:
         terms:
             label:       Afficher les différences avec :
             no_target:   Sélectionnez une version à comparer
-    go_back:             Back to agree terms CHANGE_TO_FR
+    go_back:             Retour
     instruction: >
         <p>Open the link below to see the difference between your last agreed terms and latest terms: CHANGE_TO_FR </p>
     label: Show differences CHANGE_TO_FR
