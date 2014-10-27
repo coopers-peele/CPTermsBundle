@@ -11,6 +11,7 @@ use CP\Bundle\TermsBundle\Propel\TermsQuery;
 use CP\Bundle\TermsBundle\Propel\Section;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
