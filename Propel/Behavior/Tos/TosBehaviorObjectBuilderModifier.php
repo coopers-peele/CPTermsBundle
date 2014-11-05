@@ -35,7 +35,6 @@ class TosBehaviorObjectBuilderModifier
         $script .= $this->addGetLastAgreedTerms();
         $script .= $this->addGetAgreementForLatestTerms();
         $script .= $this->addHasAgreedToLatestTerms();
-        $script .= $this->addSetAgreementForLatestTerms();
 
         return $script;
     }
@@ -60,8 +59,4 @@ class TosBehaviorObjectBuilderModifier
         return $this->behavior->renderTemplate('objectHasAgreedToLatestTerms');
     }
 
-    protected function addSetAgreementForLatestTerms()
-    {
-        return $this->behavior->renderTemplate('objectSetAgreementForLatestTerms');
-    }
 }
