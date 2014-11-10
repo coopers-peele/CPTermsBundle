@@ -1,5 +1,5 @@
 
-/*
+/**
  * adds latest term to new agreement
  */
 public function setAgreementForLatestTerms(Agreement $agreement)
@@ -15,4 +15,6 @@ public function setAgreementForLatestTerms(Agreement $agreement)
 
         $this->agreement = $agreement;
     }
+
+    return $this;
 }
