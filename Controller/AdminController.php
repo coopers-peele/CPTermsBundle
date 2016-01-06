@@ -152,7 +152,7 @@ class AdminController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $terms = $this->getTerms($id, false);
+        $terms = $this->getTerms($id, true);
 
         $form = $this->createForm(
             new TermsFormType(),
